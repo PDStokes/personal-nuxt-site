@@ -14,6 +14,15 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PDStokes/personal-nuxt-site.git"
   }
 }
