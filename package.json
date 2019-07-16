@@ -1,0 +1,19 @@
+{
+  "name": "personal-nuxt-site",
+  "version": "1.0.0",
+  "description": "Personal website for Paul Stokes",
+  "author": "Paul Stokes",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
