@@ -1,0 +1,23 @@
+@mixin bp($size) {
+    @if $size == 'phone' {
+        @media (max-width: 425px) {
+            @content;
+        }
+    } @else if $size == 'not-phone' {
+        @media (min-width: 425px) {
+            @content;
+        }
+    } @else if $size == 'tablet' {
+        @media (min-width: 768px) {
+            @content;
+        }
+    } @else if $size == 'laptop' {
+        @media (min-width: 1024px) {
+            @content;
+        }
+    } @else if $size == 'desktop' {
+        @media (min-width: 1440px) {
+            @content;
+        }
+    }
+}

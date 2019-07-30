@@ -1,0 +1,99 @@
+html {
+    font-family: $sans-font;
+    font-size: 16px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background-color: white;
+    color: black;
+    overflow: scroll
+}
+
+html, body, .site-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.content-wrapper {
+    max-width: 1150px;
+    margin: 80px auto;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.fade-in{
+    animation: fade-in 0.5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        ransform: translateY(0px);
+    }
+}
+
+.fade-out{
+    animation: fade-out 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.slide-out{
+    animation: slide-out 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-out {
+    from {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.slide-in{
+    animation: slide-in 0.5s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
