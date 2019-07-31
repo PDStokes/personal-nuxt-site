@@ -1,7 +1,7 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle">Projects</h1>
+            <h1 ref="pageTitle">TIDAL</h1>
         </transition>
         <div class="project-list">
             <projectCards ref="cardComponent" :projects="projectList" />
@@ -15,6 +15,9 @@ import projectCards from '~/components/project-cards.vue';
 export default {
     components: {
         projectCards,
+    },
+    meta: {
+        pageName: 'TIDAL',
     },
     beforeRouteLeave (to, from, next) {
         const timeout = (this.$refs.cardComponent.$children[0].$children.length * 0.5) / 2 * 1000;
@@ -34,27 +37,24 @@ export default {
         projectList () {
             return [
                 {
-                    title: 'TIDAL',
-                    href: 'tidal',
+                    title: 'Jayz ICON',
+                    href: 'jayzicon',
                     bgImg: require('~/assets/images/spammy.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
-                        require('~/assets/images/logos/logo-vue.png'),
-                        require('~/assets/images/logos/logo-nuxt.png'),
                         require('~/assets/images/logos/logo-node.png'),
                         require('~/assets/images/logos/logo-sass.png'),
-                        require('~/assets/images/logos/logo-git.png'),
                     ],
                 },
                 {
-                    title: 'Delaware Investments',
-                    href: 'delaware',
+                    title: 'Latinx Heritage Month \'17',
+                    href: 'latinx',
                     bgImg: require('~/assets/images/spammy.jpg'),
                     logoList: [
-                        require('~/assets/images/logos/logo-sitecore.png'),
-                        require('~/assets/images/logos/logo-highcharts.png'),
-                        require('~/assets/images/logos/logo-less.png'),
-                        require('~/assets/images/logos/logo-qgis.png'),
+                        require('~/assets/images/logos/logo-raphael.png'),
+                        require('~/assets/images/logos/logo-angular.png'),
+                        require('~/assets/images/logos/logo-node.png'),
+                        require('~/assets/images/logos/logo-sass.png'),
                     ],
                 },
                 {
