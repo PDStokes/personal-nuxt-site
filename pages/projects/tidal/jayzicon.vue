@@ -9,6 +9,12 @@
 <script>
 export default {
     name: 'JAYZICON',
+    props: {
+        name: {
+            type: String,
+            default: 'Jayz ICON',
+        },
+    },
     head () {
         return {
             title: 'JAYZ ICON',

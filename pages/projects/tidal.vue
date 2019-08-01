@@ -3,3 +3,9 @@
 </template>
 
 <script>
+export default {
+    meta: {
+        pageName: 'TIDAL',
+    },
+};
+</script>

@@ -16,9 +16,6 @@ export default {
     components: {
         projectCards,
     },
-    meta: {
-        pageName: 'TIDAL',
-    },
     beforeRouteLeave (to, from, next) {
         const timeout = (this.$refs.cardComponent.$children[0].$children.length * 0.5) / 2 * 1000;
 

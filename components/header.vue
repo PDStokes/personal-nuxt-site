@@ -2,13 +2,13 @@
     <nav class="nav-bar-wrapper">
         <ul class="nav-bar">
             <li class="nav-item">
-                <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/">Home</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link" to="/projects">Projects</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/projects">Projects</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link" to="/resume">Resume</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/resume">Resume</nuxt-link>
             </li>
         </ul>
     </nav>
