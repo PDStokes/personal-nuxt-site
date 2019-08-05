@@ -1,6 +1,10 @@
 <template>
     <div class="breadcrumb-wrapper">
-        <div class="breadcrumb-bar">
+        <div
+            ref="crumbBar"
+            class="breadcrumb-bar"
+            :class="{ 'slide-in' : enter }"
+        >
             <nuxt-link
                 v-for="(crumb, index) in breadCrumbs"
                 :key="crumb.link"
@@ -14,6 +18,11 @@
 
 <script>
 export default {
+    data () {
+        return {
+            enter: false,
+        };
+    },
     computed: {
         breadCrumbs () {
             const matchedRoutes = this.$route.matched;
@@ -21,7 +30,10 @@ export default {
             let crumbs = [];
             if (matchedRoutes.length > 2) {
                 crumbs = this.generateCrumbs(matchedRoutes, metaTags);
+            } else {
+                crumbs = 0;
             }
+            this.enterCheck(crumbs);
             return crumbs;
         },
     },
@@ -41,6 +53,13 @@ export default {
             const finalArr = pathArr.filter(item => item !== null);
             return finalArr;
         },
+        enterCheck (truthy) {
+            if (truthy && this.enter !== true) {
+                this.enter = true;
+            } else if (!truthy) {
+                this.enter = false;
+            }
+        },
     },
 };
 </script>
@@ -50,8 +69,9 @@ $base-color: rgb(151, 151, 151);
 
 .breadcrumb-wrapper {
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 65px;
+    overflow: hidden;
 }
 
 .breadcrumb-bar {
@@ -61,10 +81,7 @@ $base-color: rgb(151, 151, 151);
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    @include bp(not-phone) {
-        justify-content: flex-start;
-    }
+    justify-content: flex-start;
 }
 
 @for $i from 0 through 2 {

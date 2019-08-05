@@ -18,6 +18,7 @@
 .nav-bar-wrapper {
     width: 100%;
     position: fixed;
+    z-index: 1000;
     top: 0;
     background-color: #ccc;
 }
@@ -29,7 +30,7 @@
     padding: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     @include bp(not-phone) {
         justify-content: flex-start;
     }

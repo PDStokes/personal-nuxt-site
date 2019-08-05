@@ -11,25 +11,13 @@
 
 <script>
 import projectCards from '~/components/project-cards.vue';
+import { leaveAnim } from '~/plugins/cardAnimation.js';
 
 export default {
     components: {
         projectCards,
     },
-    beforeRouteLeave (to, from, next) {
-        const timeout = (this.$refs.cardComponent.$children[0].$children.length * 0.5) / 2 * 1000;
-
-        this.$refs.cardComponent.$children[0].$children.forEach((elem) => {
-            elem.$el.className += ' fade-out';
-        });
-
-        this.$refs.pageTitle.style.animationDelay = (timeout - 500) / 1000 + 's';
-        this.$refs.pageTitle.className += 'slide-out';
-
-        setTimeout(() => {
-            next();
-        }, timeout);
-    },
+    mixins: [leaveAnim],
     computed: {
         projectList () {
             return [
