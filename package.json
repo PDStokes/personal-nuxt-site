@@ -12,7 +12,8 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "nuxt": "^2.8.1"
+    "nuxt": "^2.8.1",
+    "three": "^0.107.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
