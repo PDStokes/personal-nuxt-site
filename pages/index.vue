@@ -1,5 +1,5 @@
 <template>
-    <main ref="threeCanvas" class="canvas">
+    <main ref="threeCanvas" class="canvas" :class="{ 'space-bg' : !loading }">
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
     </main>
 </template>
@@ -32,12 +32,12 @@ export default {
         // Initialize SCENE and CAMERA
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-        this.camera.position.set(0, 0, 30);
+        this.camera.position.set(0, 0, 35);
 
         // Initialize RENDERER and add to DOM
-        this.renderer = new THREE.WebGLRenderer({ antialias: true });
+        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setSize(width, height);
-        this.renderer.setClearColor(0x111111);
+        this.renderer.setClearColor(0xffffff, 0);
         this.$refs.threeCanvas.appendChild(this.renderer.domElement);
 
         // Initialize AMBIENT LIGHT
@@ -45,11 +45,11 @@ export default {
         this.scene.add(ambientLight);
 
         // Initialize POINT LIGHTS
-        const pointLight = new THREE.PointLight(0xffffff, 0.75);
+        const pointLight = new THREE.PointLight(0xffffff, 0.85);
         pointLight.position.set(0, 20, 5);
         this.scene.add(pointLight);
 
-        const pointLightBounce = new THREE.PointLight(0xffffff, 0.2);
+        const pointLightBounce = new THREE.PointLight(0xffffff, 0.35);
         pointLightBounce.position.set(0, -20, 0);
         this.scene.add(pointLightBounce);
 
@@ -74,7 +74,7 @@ export default {
             this.animReq = requestAnimationFrame(anim);
         },
         updateScene () {
-            this.objParent.rotation.x -= 0.0025;
+            this.objParent.rotation.x -= 0.001;
             this.objParent.rotation.y += 0.005;
             this.scenePolys.forEach((elem, index) => {
                 elem.rotation.x += 0.01;
@@ -91,6 +91,7 @@ export default {
                     slicedSet.set(slicedSet.slice(3), 0);
                     slicedSet.set([newDot.x, newDot.y, newDot.z], (lineRange[1] - 1) * 3);
                 } else {
+                    // line.geometry.attributes.vOrder.array.set([this.trailLength - lineRange[1]], [lineRange[1]]);
                     line.geometry.attributes.position.array.set([newDot.x, newDot.y, newDot.z], lineRange[1]++ * 3);
                 }
 
@@ -110,10 +111,11 @@ export default {
             };
             function vertexShader () {
                 return `
+                    attribute float vOrder;
                     varying float vOpacity;
 
                     void main() {
-                        vOpacity = gl_VertexID;
+                        vOpacity = vOrder;
 
                         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
                     }
@@ -129,52 +131,69 @@ export default {
                     varying float vOpacity;
 
                     void main() {
-                        gl_FragColor = vec4(color, opacity - vOpacity / vertCount);
+                        gl_FragColor = vec4(color, opacity * (vOpacity / vertCount));
                     }
                 `;
             }
-            const uniforms = {
-                color: { type: 'color', value: new THREE.Color(0xff0000) },
-                opacity: { type: 'float', value: 1.0 },
-                vertCount: { type: 'int', value: this.trailLength },
-            };
+            const vOrder = new Float32Array(this.trailLength);
+            vOrder.forEach((elem, index) => {
+                vOrder.set([index + 1], index);
+            });
             for (let i = 0; i <= max; i++) {
-                // Initialize Plane
+                // Initialize Random Location
                 const x = plusMinus() * (Math.floor(Math.random() * 20));
-                const y = plusMinus() * (Math.floor(Math.random() * 20));
+                const y = plusMinus() * (Math.floor(Math.random() * 15));
                 const z = plusMinus() * (Math.floor(Math.random() * 20));
+
+                // Initialize Random Radius and Poly count
                 const radius = (Math.random() * (0.9 - 0.15) + 0.15).toFixed(2);
                 const detail = Math.floor(Math.random() * 3 + 1);
+
+                // Initialize Random Color
                 const color = new THREE.Color('hsl(' + colorVal(0, 358) + ', ' + colorVal(55, 80) + '%, ' + colorVal(50, 80) + '%)');
-                const ringCheck = Math.round(Math.random() * 10);
+
+                // Initialize parent group, material, and geo
                 const planet = new THREE.Group();
-                const verts = new Float32Array(this.trailLength * 3);
                 const material = new THREE.MeshStandardMaterial({
                     color,
                     metalness: 0,
                     roughness: 1,
                     flatShading: true,
                 });
-
                 const geometry = new THREE.OctahedronGeometry(radius, detail);
                 const poly = new THREE.Mesh(geometry, material);
                 planet.add(poly);
 
-                const shaderMaterial = new THREE.ShaderMaterial( {
+                // Initialize Custom trail shader
+                const uniforms = {
+                    color: { type: 'color', value: color },
+                    opacity: { type: 'float', value: 1.0 },
+                    vertCount: { type: 'float', value: this.trailLength },
+                };
+                const shaderMaterial = new THREE.ShaderMaterial({
                     uniforms,
                     fragmentShader: fragmentShader(),
                     vertexShader: vertexShader(),
+                    transparent: true,
                 });
 
-                const lineMat = new THREE.LineBasicMaterial({ color: 0xffffff });
+                // Initialize Line Geo
                 const lineGeo = new THREE.BufferGeometry();
+
+                // Initialize and add Buffer Attributes
+                const verts = new Float32Array(this.trailLength * 3);
                 verts.set([x, y, z], 0);
                 lineGeo.addAttribute('position', new THREE.BufferAttribute(verts, 3));
-                const line = new THREE.Line(lineGeo, lineMat);
+                lineGeo.addAttribute('vOrder', new THREE.BufferAttribute(vOrder, 1));
+
+                // Initialize Trail Line
+                const line = new THREE.Line(lineGeo, shaderMaterial);
                 line.geometry.setDrawRange(0, 1);
                 this.lineArr.push([line, [0, 1]]);
                 this.scene.add(line);
 
+                // Initialize Planet Ring If True
+                const ringCheck = Math.round(Math.random() * 10);
                 if (ringCheck < 4 && radius > 0.5) {
                     const ringGeo = new THREE.TorusGeometry(1, 0.15, 2, 20);
                     const ringMat = new THREE.MeshStandardMaterial({
@@ -187,6 +206,7 @@ export default {
                     planet.add(ring);
                 }
 
+                // Set Planet position and add to parent group + poly list
                 planet.position.set(x, y, z);
                 this.scenePolys.push(planet);
                 this.objParent.add(planet);
@@ -201,9 +221,14 @@ export default {
 .canvas {
     width: 100%;
     height: 100vh;
-    background-color: #111111;
+    background-color: black;
     overflow-y: hidden;
 }
+
+.space-bg {
+    background: url('~assets/images/space-bg.jpg') center / cover no-repeat black;
+}
+
 .loading {
     color: white;
     position: absolute;
