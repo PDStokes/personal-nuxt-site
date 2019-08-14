@@ -19,7 +19,7 @@ export default {
             animReq: null,
             loading: true,
             trailLength: 100,
-            planetCount: 100,
+            planetCount: 75,
         };
     },
     beforeDestroy () {
@@ -28,6 +28,11 @@ export default {
     mounted () {
         const width = this.$refs.threeCanvas.offsetWidth;
         const height = this.$refs.threeCanvas.offsetHeight;
+
+        // Reduce planet count if on Mobile/Tablet
+        if (width < 1024) {
+            this.planetCount = 50;
+        }
 
         // Initialize SCENE and CAMERA
         this.scene = new THREE.Scene();
@@ -74,28 +79,35 @@ export default {
             this.animReq = requestAnimationFrame(anim);
         },
         updateScene () {
+            // Rotate scene
             this.objParent.rotation.x -= 0.001;
             this.objParent.rotation.y += 0.005;
+
+            // Rotate each planet individually
             this.scenePolys.forEach((elem, index) => {
                 elem.rotation.x += 0.01;
                 elem.rotation.y += 0.0025;
 
+                // Get current world position of planet
                 const newDot = new THREE.Vector3();
                 elem.getWorldPosition(newDot);
 
+                // Get cooresponding line trail obj
                 const line = this.lineArr[index][0];
                 const lineRange = this.lineArr[index][1];
 
+                // Set line trail to world position of planet obj
+                // Increase draw range until array limit is hit
+                // Then slice current array with new vals
                 if (lineRange[1] === this.trailLength) {
                     const slicedSet = line.geometry.attributes.position.array;
                     slicedSet.set(slicedSet.slice(3), 0);
                     slicedSet.set([newDot.x, newDot.y, newDot.z], (lineRange[1] - 1) * 3);
                 } else {
-                    // line.geometry.attributes.vOrder.array.set([this.trailLength - lineRange[1]], [lineRange[1]]);
                     line.geometry.attributes.position.array.set([newDot.x, newDot.y, newDot.z], lineRange[1]++ * 3);
+                    line.geometry.setDrawRange(lineRange[0], lineRange[1]);
                 }
 
-                line.geometry.setDrawRange(lineRange[0], lineRange[1]);
                 line.geometry.attributes.position.needsUpdate = true;
             });
         },
@@ -103,12 +115,16 @@ export default {
             this.renderer.render(this.scene, this.camera);
         },
         spawnObjects (max) {
+            // Random pos/neg sign
             const plusMinus = () => {
                 return Math.random() < 0.5 ? -1 : 1;
             };
+            // Color min max
             const colorVal = (min, max) => {
                 return Math.floor(Math.random() * (max - min) + min);
             };
+            // Line Vertex shader
+            // Passes vertex attribute as index
             function vertexShader () {
                 return `
                     attribute float vOrder;
@@ -121,7 +137,8 @@ export default {
                     }
                 `;
             }
-
+            // Line Fragment Shader
+            // Dynamically sets opacity per vertex based on index
             function fragmentShader () {
                 return `
                     uniform vec3 color;
@@ -135,10 +152,13 @@ export default {
                     }
                 `;
             }
+            // Vertex order array
+            // Creates 0 to X array, where X is max trail length
             const vOrder = new Float32Array(this.trailLength);
             vOrder.forEach((elem, index) => {
                 vOrder.set([index + 1], index);
             });
+            // Generates planets and lines based on max
             for (let i = 0; i <= max; i++) {
                 // Initialize Random Location
                 const x = plusMinus() * (Math.floor(Math.random() * 20));
