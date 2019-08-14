@@ -1,6 +1,10 @@
 <template>
     <main ref="threeCanvas" class="canvas" :class="{ 'space-bg' : !loading }">
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
+        <div v-else class="welcome">
+            <h1>Welcome to my site</h1>
+            <nuxt-link to="/projects" class="enter-button">Enter</nuxt-link>
+        </div>
     </main>
 </template>
 
@@ -247,6 +251,40 @@ export default {
 
 .space-bg {
     background: url('~assets/images/space-bg.jpg') center / cover no-repeat black;
+}
+
+.welcome {
+    color: white;
+    position: absolute;
+    font-family: $serif-font;
+    font-size: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    width: fit-content;
+    left: 0; right: 0;
+    text-align: center;
+    background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0) 100% );
+
+    @include bp(not-phone) {
+        font-size: 3rem;
+    }
+
+    .enter-button {
+        border: 2px solid white;
+        border-radius: 5px;
+        padding: 10px 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: background-color 0.25s;
+        color: white;
+        font-family: $sans-font;
+        font-size: 2rem;
+
+        &:hover {
+            transition: background-color 0.25s;
+            background-color: rgba(255, 255, 255, 0.45);
+        }
+    }
 }
 
 .loading {

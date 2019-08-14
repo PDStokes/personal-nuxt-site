@@ -11,15 +11,13 @@ const leaveAnim = {
             cardChildren.forEach((elem) => {
                 elem.$el.className += ' fade-out';
             });
-
-            pageTitle.style.animationDelay = (timeout - 500) / 1000 + 's';
         }
 
         if (pageTitle) {
             pageTitle.className += 'slide-out';
         }
         if (pageContent) {
-            pageContent.className += 'fade-out';
+            pageContent.className += ' fade-out';
         }
 
         setTimeout(() => {

@@ -41,6 +41,10 @@ h1 {
     font-size: 1.5rem;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -49,6 +53,30 @@ h1 {
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
+}
+
+.quote {
+    position: relative;
+    padding: 20px 2rem;
+    border: 1px solid rgb(151, 151, 151);
+    background-color: $light-bg;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.role-box {
+    padding: 20px 2rem;
+    border: 1px solid rgb(151, 151, 151);
+    background-color: $light-bg;
+    border-radius: 5px;
+
+    .role {
+        margin-top: 0;
+    }
+
+    li {
+        padding: 5px 0;
+    }
 }
 
 // CONTENT + WRAPPERS
@@ -64,6 +92,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.page-content {
+    margin-bottom: 50px;
 }
 
 // ANIMATIONS

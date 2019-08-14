@@ -1,7 +1,7 @@
 <template>
     <div class="site-wrapper">
-        <header-component />
-        <breadcrumbs :key="breadKey" />
+        <header-component v-if="!home" />
+        <breadcrumbs />
         <nuxt />
     </div>
 </template>
@@ -15,13 +15,10 @@ export default {
         headerComponent,
         breadcrumbs,
     },
-    data () {
-        return {
-            breadKey: 0,
-        };
-    },
-    beforeUpdate () {
-        this.breadKey++;
+    computed: {
+        home () {
+            return this.$route.path === '/';
+        },
     },
 };
 </script>
