@@ -14,7 +14,7 @@ const leaveAnim = {
         }
 
         if (pageTitle) {
-            pageTitle.className += 'slide-out';
+            pageTitle.className += ' slide-out';
         }
         if (pageContent) {
             pageContent.className += ' fade-out';

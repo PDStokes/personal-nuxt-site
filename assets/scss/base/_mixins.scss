@@ -21,3 +21,8 @@
         }
     }
 }
+
+@mixin content-borders() {
+    border-top: $content-border-width solid $content-border-color;
+    border-bottom: $content-border-width solid $content-border-color;
+}

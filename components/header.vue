@@ -20,7 +20,7 @@
     position: fixed;
     z-index: 1000;
     top: 0;
-    background-color: #ccc;
+    background-color: $site-base-color;
 }
 
 .nav-bar {
@@ -43,7 +43,7 @@
     text-align: center;
 
     &:hover{
-        background-color: #bbb;
+        background-color: darken($site-base-color, 5%);
         cursor: pointer;
     }
 
@@ -54,7 +54,7 @@
     }
 
     & > .nuxt-link-exact-active {
-        background-color: #bbb;
+        background-color: darken($site-base-color, 10%);
         border-radius: 5px;
     }
 }

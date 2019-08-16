@@ -1,4 +1,16 @@
 $sans-font: 'Roboto', sans-serif;
 $serif-font: 'DM Serif Display', serif;
+$site-base-color: rgb(150, 150, 165);
+$site-mid-color: lighten($site-base-color, 10%);
+$site-light-color: lighten($site-base-color, 20%);
+$site-lighter-color: lighten($site-base-color, 28%);
+$site-lightest-color: lighten($site-base-color, 35%);
 
-$light-bg: #f7f7f7;
+$dark-text: rgb(80, 80, 80);
+
+$light-bg: $site-lightest-color;
+$dark-bg: rgb(60, 60, 60);
+
+$content-border-color: $site-light-color;
+$content-border-width: 3px;
+

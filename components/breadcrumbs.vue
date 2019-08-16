@@ -28,7 +28,7 @@ export default {
             const matchedRoutes = this.$route.matched;
             const metaTags = this.$nuxt.$options.context.route.meta;
             let crumbs = [];
-            if (matchedRoutes.length > 2) {
+            if (matchedRoutes.length > 1) {
                 crumbs = this.generateCrumbs(matchedRoutes, metaTags);
             } else {
                 crumbs = 0;
@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$base-color: rgb(151, 151, 151);
 
 .breadcrumb-wrapper {
     width: 100%;
@@ -86,9 +85,9 @@ $base-color: rgb(151, 151, 151);
 
 @for $i from 0 through 2 {
     .level-#{$i} {
-        background-color: lighten($base-color, $i * 8%);
+        background-color: lighten($site-base-color, $i * 10%);
         &:after {
-            background-color: lighten($base-color, $i * 8%);
+            background-color: lighten($site-base-color, $i * 10%);
         }
     }
 }
@@ -97,7 +96,7 @@ $base-color: rgb(151, 151, 151);
     position: relative;
     color: white;
     padding: 5px 10px;
-    border: 1px solid darken($base-color, 5%);
+    border: 1px solid darken($site-base-color, 5%);
     border-right: none;
 
     + .crumby {
@@ -109,8 +108,8 @@ $base-color: rgb(151, 151, 151);
         height: 10px;
         width: 10px;
         transform: translateY(-50%) rotate(45deg);
-        border-right: 1px solid darken($base-color, 5%);
-        border-top: 1px solid darken($base-color, 5%);
+        border-right: 1px solid darken($site-base-color, 5%);
+        border-top: 1px solid darken($site-base-color, 5%);
         position: absolute;
         right: -6px;
         top: 50%;
@@ -118,10 +117,14 @@ $base-color: rgb(151, 151, 151);
     }
 
     &:last-child {
-        border: 1px solid darken($base-color, 5%);
+        border: 1px solid darken($site-base-color, 5%);
         &:after {
             display: none;
         }
+    }
+
+    &:hover {
+        text-shadow: 0px 0px 3px rgba(0,0,0,0.25);
     }
 }
 </style>

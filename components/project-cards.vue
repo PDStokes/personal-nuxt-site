@@ -55,7 +55,7 @@ export default {
     -webkit-box-sizing: border-box;
     border-radius: 5px;
     transition: transform 0.5s;
-    color: black;
+    color: $dark-text;
     width: 100%;
     margin-bottom: 3rem;
     z-index: 1;
@@ -68,7 +68,8 @@ export default {
     &:after {
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        border: 1px solid rgba(0,0,0,.05);
+        border: 1px solid rgba(0,0,0,.1);
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.05);
         border-radius: 5px;
         content: '';
         z-index: 10;

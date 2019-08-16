@@ -165,9 +165,9 @@ export default {
             // Generates planets and lines based on max
             for (let i = 0; i <= max; i++) {
                 // Initialize Random Location
-                const x = plusMinus() * (Math.floor(Math.random() * 20));
+                const x = plusMinus() * (Math.floor(Math.random() * 25));
                 const y = plusMinus() * (Math.floor(Math.random() * 15));
-                const z = plusMinus() * (Math.floor(Math.random() * 20));
+                const z = plusMinus() * (Math.floor(Math.random() * 25));
 
                 // Initialize Random Radius and Poly count
                 const radius = (Math.random() * (0.9 - 0.15) + 0.15).toFixed(2);
@@ -261,7 +261,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     margin: auto;
-    width: fit-content;
+    width: 100%;
     left: 0; right: 0;
     text-align: center;
     background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0) 100% );
@@ -278,6 +278,7 @@ export default {
         transition: background-color 0.25s;
         color: white;
         font-family: $sans-font;
+        font-weight: bold;
         font-size: 2rem;
 
         &:hover {

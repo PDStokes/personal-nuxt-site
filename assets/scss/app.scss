@@ -55,18 +55,21 @@ h1 {
                                     supported by Chrome and Opera */
 }
 
+// CONTENT + WRAPPERS
+
 .quote {
     position: relative;
     padding: 20px 2rem;
-    border: 1px solid rgb(151, 151, 151);
+    @include content-borders;
     background-color: $light-bg;
-    border-radius: 5px;
     margin-bottom: 40px;
+    border-radius: 5px;
 }
 
 .role-box {
+    position: relative;
     padding: 20px 2rem;
-    border: 1px solid rgb(151, 151, 151);
+    @include content-borders;
     background-color: $light-bg;
     border-radius: 5px;
 
@@ -79,13 +82,57 @@ h1 {
     }
 }
 
-// CONTENT + WRAPPERS
+.project-box {
+    @extend .role-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include bp(not-phone) {
+        flex-direction: row;
+    }
+}
+
+@for $i from 2 through 8 {
+    .split-#{$i} {
+        width: 100%;
+        @include bp(not-phone) {
+            width: (100% / $i);
+        }
+    }
+}
+
+.tool-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $site-lighter-color;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 30px auto;
+
+    @include bp(not-phone) {
+        margin: auto;
+    }
+
+    .tool {
+        max-width: 60px;
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
 
 .content-wrapper {
     max-width: 1150px;
-    margin: 80px auto;
+    margin: 95px auto;
     padding: 0 20px;
     overflow: hidden;
+    color: $dark-text;
 }
 
 .centered {
@@ -95,7 +142,7 @@ h1 {
 }
 
 .page-content {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 
 // ANIMATIONS
