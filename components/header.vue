@@ -43,7 +43,7 @@
     text-align: center;
 
     &:hover{
-        background-color: darken($site-base-color, 5%);
+        background-color: darken($site-base-color, 10%);
         cursor: pointer;
     }
 

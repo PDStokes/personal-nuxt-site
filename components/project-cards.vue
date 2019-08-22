@@ -55,7 +55,6 @@ export default {
     -webkit-box-sizing: border-box;
     border-radius: 5px;
     transition: transform 0.5s;
-    color: $dark-text;
     width: 100%;
     margin-bottom: 3rem;
     z-index: 1;
@@ -84,10 +83,13 @@ export default {
 
 .card-info {
     bottom: 0; left: 0; right: 0;
-    background-color: white;
+    background-color: $nasa-blue;
+    color: white;
     width: 100%;
     position: absolute;
     z-index: 5;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .card-logos {
@@ -120,5 +122,6 @@ export default {
 h2 {
     margin: 0;
     padding: 15px 10px;
+    // color: $nasa-blue;
 }
 </style>

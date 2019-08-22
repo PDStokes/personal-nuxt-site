@@ -5,7 +5,7 @@ html {
     -webkit-text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: white;
+    background-color: $eggshell-color;
     color: black;
     overflow: scroll
 }
@@ -45,6 +45,12 @@ h1 {
     font-weight: bold;
 }
 
+.page-title {
+    font-family: $nasa-font;
+    color: $nasa-red;
+    font-size: 3rem;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -64,6 +70,48 @@ h1 {
     background-color: $light-bg;
     margin-bottom: 40px;
     border-radius: 5px;
+    line-height: 2.25rem;
+    font-weight: bold;
+}
+
+.tool-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $site-lighter-color;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 30px auto;
+
+    @include bp(not-phone) {
+        margin: auto;
+    }
+
+    .tool {
+        max-width: 60px;
+        margin-right: 20px;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+}
+
+.tool-box--role {
+    @extend .tool-box;
+    width: auto;
+    margin-bottom: 40px;
+    justify-content: space-evenly;
+    background-color: $site-lightest-color;
+    @include content-borders;
+
+    .tool {
+        max-width: 80px;
+    }
 }
 
 .role-box {
@@ -79,6 +127,7 @@ h1 {
 
     li {
         padding: 5px 0;
+        line-height: 1.5rem;
     }
 }
 
@@ -103,30 +152,6 @@ h1 {
     }
 }
 
-.tool-box {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: $site-lighter-color;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 30px auto;
-
-    @include bp(not-phone) {
-        margin: auto;
-    }
-
-    .tool {
-        max-width: 60px;
-        margin-right: 20px;
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-}
-
 .content-wrapper {
     max-width: 1150px;
     margin: 95px auto;
@@ -143,6 +168,7 @@ h1 {
 
 .page-content {
     margin-bottom: 80px;
+    animation-delay: 0.25s
 }
 
 // ANIMATIONS

@@ -99,6 +99,11 @@ export default {
     border: 1px solid darken($site-base-color, 5%);
     border-right: none;
 
+    &:nth-child(1) {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
     + .crumby {
         padding: 5px 12px;
     }
@@ -121,6 +126,8 @@ export default {
         &:after {
             display: none;
         }
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     &:hover {

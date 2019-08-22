@@ -2,7 +2,7 @@
     <main ref="threeCanvas" class="canvas" :class="{ 'space-bg' : !loading }">
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
         <div v-else class="welcome">
-            <h1>Welcome to my site</h1>
+            <h1 class="noselect">Welcome to my site</h1>
             <nuxt-link to="/projects" class="enter-button">Enter</nuxt-link>
         </div>
     </main>
@@ -24,6 +24,11 @@ export default {
             loading: true,
             trailLength: 100,
             planetCount: 75,
+        };
+    },
+    head () {
+        return {
+            title: 'Paul Stokes: Internetular Navigator',
         };
     },
     beforeDestroy () {

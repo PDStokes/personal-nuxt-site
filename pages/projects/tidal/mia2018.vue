@@ -1,20 +1,20 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">JAY-Z ICON</h1>
+            <h1 ref="pageTitle" class="page-title">Made In America 2018</h1>
         </transition>
 
         <transition appear appear-active-class="fade-in">
             <section ref="pageContent" class="page-content">
-                <p class="font-large quote">Landing page celebrating receipt of GRAMMY Salute to Industry Icons Award for JAY-Z.</p>
+                <p class="font-large quote">Livestream platform for Made In America Festival 2018.</p>
                 <div class="project-box">
                     <div class="split-2">
-                        <h2 class="role">Role: Lead</h2>
+                        <h2 class="role">Role: Support</h2>
                         <p class="bold">Features:</p>
                         <ul>
-                            <li>Interactive awards timeline with expandable click for more info</li>
-                            <li>Playlist selector / loader</li>
-                            <li>Custom design and animation</li>
+                            <li>Livestream page with dynamically updated lineup / stages</li>
+                            <li>Filterable program and VOD page</li>
+                            <li>Custom design</li>
                         </ul>
                     </div>
                     <div class="split-2">
@@ -40,11 +40,11 @@ export default {
     mixins: [leaveAnim],
     head () {
         return {
-            title: 'JAY-Z ICON',
+            title: 'MIA 2018',
         };
     },
     meta: {
-        pageName: 'JAY-Z ICON',
+        pageName: 'MIA 2018',
     },
     data () {
         return {

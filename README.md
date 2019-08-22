@@ -2,6 +2,8 @@
 
 > Personal website for Paul Stokes
 
+> Brand guide: [NASA 1975](https://standardsmanual.com/products/nasa-graphics-standards-manual)
+
 ## Build Setup
 
 ``` bash

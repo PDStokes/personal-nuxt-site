@@ -1,19 +1,19 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">JAY-Z ICON</h1>
+            <h1 ref="pageTitle" class="page-title">Chasing The Cup</h1>
         </transition>
 
         <transition appear appear-active-class="fade-in">
             <section ref="pageContent" class="page-content">
-                <p class="font-large quote">Landing page celebrating receipt of GRAMMY Salute to Industry Icons Award for JAY-Z.</p>
+                <p class="font-large quote">Interactive map and playlist landing page for FIFA World Cup campaign.</p>
                 <div class="project-box">
                     <div class="split-2">
-                        <h2 class="role">Role: Lead</h2>
+                        <h2 class="role">Role: Support</h2>
                         <p class="bold">Features:</p>
                         <ul>
-                            <li>Interactive awards timeline with expandable click for more info</li>
-                            <li>Playlist selector / loader</li>
+                            <li>World map with continent-based hover</li>
+                            <li>Country-based playlist selection and loading</li>
                             <li>Custom design and animation</li>
                         </ul>
                     </div>
@@ -40,15 +40,16 @@ export default {
     mixins: [leaveAnim],
     head () {
         return {
-            title: 'JAY-Z ICON',
+            title: 'Chasing The Cup',
         };
     },
     meta: {
-        pageName: 'JAY-Z ICON',
+        pageName: 'Chasing The Cup',
     },
     data () {
         return {
             logoList: [
+                require('~/assets/images/logos/logo-raphael.png'),
                 require('~/assets/images/logos/logo-angular.png'),
                 require('~/assets/images/logos/logo-node.png'),
                 require('~/assets/images/logos/logo-sass.png'),

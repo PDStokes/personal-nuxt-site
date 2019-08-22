@@ -1,20 +1,21 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">JAY-Z ICON</h1>
+            <h1 ref="pageTitle" class="page-title">Dynamic Embed Matrix</h1>
         </transition>
 
         <transition appear appear-active-class="fade-in">
             <section ref="pageContent" class="page-content">
-                <p class="font-large quote">Landing page celebrating receipt of GRAMMY Salute to Industry Icons Award for JAY-Z.</p>
+                <p class="font-large quote">Experimental use of API to display video playlists in thumbnail matrix format.</p>
                 <div class="project-box">
                     <div class="split-2">
                         <h2 class="role">Role: Lead</h2>
                         <p class="bold">Features:</p>
                         <ul>
-                            <li>Interactive awards timeline with expandable click for more info</li>
-                            <li>Playlist selector / loader</li>
-                            <li>Custom design and animation</li>
+                            <li>Dynamically load array of video IDs and thumbnail images from API</li>
+                            <li>Exclude videos unavailable in country/region</li>
+                            <li>Video swap and reload on select</li>
+                            <li>Custom design</li>
                         </ul>
                     </div>
                     <div class="split-2">
@@ -40,11 +41,11 @@ export default {
     mixins: [leaveAnim],
     head () {
         return {
-            title: 'JAY-Z ICON',
+            title: 'Embed Matrix',
         };
     },
     meta: {
-        pageName: 'JAY-Z ICON',
+        pageName: 'Embed Matrix',
     },
     data () {
         return {

@@ -1,11 +1,19 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle">TIDAL</h1>
+            <h1 ref="pageTitle" class="page-title">TIDAL</h1>
         </transition>
         <transition appear appear-active-class="fade-in">
-            <section ref="pageContent" style="animation-delay: 0.25s" class="page-content">
+            <section ref="pageContent" class="page-content">
                 <p class="font-large quote">Tidal is a subscription-based music streaming service that combines lossless audio and high-definition music videos with exclusive content and special features on music.</p>
+                <div class="tool-box--role">
+                    <img
+                        v-for="logo in logoList"
+                        :key="logo"
+                        class="tool"
+                        :src="logo"
+                    >
+                </div>
                 <div class="role-box">
                     <h2 class="role">Front End Web Developer</h2>
                     <p class="bold">Duties:</p>
@@ -34,13 +42,28 @@ export default {
         projectCards,
     },
     mixins: [leaveAnim],
+    head () {
+        return {
+            title: 'TIDAL',
+        };
+    },
     computed: {
+        logoList () {
+            return [
+                require('~/assets/images/logos/logo-angular.png'),
+                require('~/assets/images/logos/logo-vue.png'),
+                require('~/assets/images/logos/logo-nuxt.png'),
+                require('~/assets/images/logos/logo-node.png'),
+                require('~/assets/images/logos/logo-sass.png'),
+                require('~/assets/images/logos/logo-git.png'),
+            ];
+        },
         projectList () {
             return [
                 {
-                    title: 'Jayz ICON',
+                    title: 'JAY-Z ICON',
                     href: 'jayzicon',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -50,7 +73,7 @@ export default {
                 {
                     title: 'Latinx Heritage Month \'17',
                     href: 'latinx',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
@@ -59,9 +82,19 @@ export default {
                     ],
                 },
                 {
-                    title: 'Songwriter\'s Hall of Fame',
-                    href: 'shof',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    title: 'Dynamix Embed Matrix',
+                    href: 'embedmatrix',
+                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    logoList: [
+                        require('~/assets/images/logos/logo-angular.png'),
+                        require('~/assets/images/logos/logo-node.png'),
+                        require('~/assets/images/logos/logo-sass.png'),
+                    ],
+                },
+                {
+                    title: 'Made In America 2018',
+                    href: 'mia2018',
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -71,7 +104,7 @@ export default {
                 {
                     title: 'Chasing The Cup',
                     href: 'chasingthecup',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
@@ -82,7 +115,7 @@ export default {
                 {
                     title: 'Wench',
                     href: 'wench',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -90,19 +123,9 @@ export default {
                     ],
                 },
                 {
-                    title: 'Made In America 2018',
-                    href: 'mia2018',
-                    bgImg: require('~/assets/images/spammy.jpg'),
-                    logoList: [
-                        require('~/assets/images/logos/logo-angular.png'),
-                        require('~/assets/images/logos/logo-node.png'),
-                        require('~/assets/images/logos/logo-sass.png'),
-                    ],
-                },
-                {
-                    title: 'Dynamix Embed Matrix',
-                    href: 'embedmatrix',
-                    bgImg: require('~/assets/images/spammy.jpg'),
+                    title: 'Songwriter\'s Hall of Fame',
+                    href: 'shof',
+                    bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),

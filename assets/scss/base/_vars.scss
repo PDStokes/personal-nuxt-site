@@ -1,16 +1,27 @@
 $sans-font: 'Roboto', sans-serif;
 $serif-font: 'DM Serif Display', serif;
-$site-base-color: rgb(150, 150, 165);
-$site-mid-color: lighten($site-base-color, 10%);
-$site-light-color: lighten($site-base-color, 20%);
-$site-lighter-color: lighten($site-base-color, 28%);
-$site-lightest-color: lighten($site-base-color, 35%);
+@font-face {
+    font-family: 'Nasalization';
+    src: url('~assets/fonts/nasalization.ttf') format('truetype');
+}
+$nasa-font: 'Nasalization', 'Roboto', sans-serif;
 
-$dark-text: rgb(80, 80, 80);
+$site-base-color: #4c4c42;
+$site-mid-color: lighten($site-base-color, 40%);
+$site-light-color: lighten($site-base-color, 50%);
+$site-lighter-color: lighten($site-base-color, 55%);
+$site-lightest-color: lighten($site-base-color, 65%);
+
+$eggshell-color: lighten(#F0EAD6, 8%);
+
+$dark-text: $site-base-color;
+$nasa-red: #d5210a;
+$nasa-blue: #013ba6;
 
 $light-bg: $site-lightest-color;
 $dark-bg: rgb(60, 60, 60);
 
-$content-border-color: $site-light-color;
+$content-border-color: $site-base-color;
+// $content-border-color: $nasa-blue;
 $content-border-width: 3px;
 
