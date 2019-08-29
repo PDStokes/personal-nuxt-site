@@ -2,7 +2,7 @@
     <nav class="nav-bar-wrapper">
         <ul class="nav-bar">
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/">Home</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/">Galaxy</nuxt-link>
             </li>
             <li class="nav-item">
                 <nuxt-link class="nav-link noselect" to="/projects">Projects</nuxt-link>

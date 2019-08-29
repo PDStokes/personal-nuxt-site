@@ -61,9 +61,20 @@ export default {
         projectList () {
             return [
                 {
+                    title: 'TIDAL Redesign',
+                    href: 'tidalredesign',
+                    bgImg: require('~/assets/images/tidal/redesign/redesign.jpg'),
+                    logoList: [
+                        require('~/assets/images/logos/logo-vue.png'),
+                        require('~/assets/images/logos/logo-nuxt.png'),
+                        require('~/assets/images/logos/logo-node.png'),
+                        require('~/assets/images/logos/logo-sass.png'),
+                    ],
+                },
+                {
                     title: 'JAY-Z ICON',
                     href: 'jayzicon',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),

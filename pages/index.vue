@@ -28,7 +28,7 @@ export default {
     },
     head () {
         return {
-            title: 'Paul Stokes: Internetular Navigator',
+            title: 'Paul Stokes',
         };
     },
     beforeDestroy () {

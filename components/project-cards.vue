@@ -40,7 +40,7 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     @include bp(not-phone) {
         flex-direction: row;
@@ -56,12 +56,18 @@ export default {
     border-radius: 5px;
     transition: transform 0.5s;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     z-index: 1;
     min-height: 15rem;
+    overflow: hidden;
 
     @include bp(not-phone) {
-        width: 30%;
+        width: 32%;
+
+        &:nth-child(3n-1) {
+            margin-left: 2%;
+            margin-right: 2%;
+        }
     }
 
     &:after {
@@ -78,6 +84,9 @@ export default {
         .card-logos {
             opacity: 1;
         }
+        .card-info {
+            box-shadow: 5px 0px 25px rgba(0,0,0,0);
+        }
     }
 }
 
@@ -88,8 +97,10 @@ export default {
     width: 100%;
     position: absolute;
     z-index: 5;
+    border-top:1px solid rgba(0,0,0,.2);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    box-shadow: 5px 0px 25px rgba(0,0,0,0.75);
 }
 
 .card-logos {
@@ -104,7 +115,7 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     z-index: 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.35s;
 
     @include bp(tablet) {
         opacity: 0;
@@ -116,7 +127,8 @@ export default {
     width: 24%;
     margin: 5px 4%;
     max-height: 45%;
-    filter: drop-shadow( 0px 0px 3px rgba(0,0,0,0.15) );
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
 h2 {
