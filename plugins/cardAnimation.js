@@ -1,4 +1,5 @@
 const leaveAnim = {
+    scrollToTop: true,
     beforeRouteLeave (to, from, next) {
         const pageTitle = typeof this.$refs.pageTitle !== 'undefined' ? this.$refs.pageTitle : null;
         const pageContent = typeof this.$refs.pageContent !== 'undefined' ? this.$refs.pageContent : null;

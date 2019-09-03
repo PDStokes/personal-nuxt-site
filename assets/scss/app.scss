@@ -84,6 +84,7 @@ h1 {
     padding: 10px;
     border-radius: 5px;
     margin: 30px auto;
+    flex-wrap: wrap;
 
     @include bp(not-phone) {
         margin: auto;
@@ -110,7 +111,6 @@ h1 {
     width: 100%;
     margin: 0 auto;
     padding: 5px 0;
-    flex-wrap: wrap;
 
     .tool {
         max-width: 40px;
@@ -131,7 +131,6 @@ h1 {
     width: auto;
     margin-bottom: 40px;
     justify-content: space-evenly;
-    flex-wrap: wrap;
     background-color: $site-lightest-color;
     @include content-borders;
 
@@ -189,7 +188,7 @@ h1 {
 
 .content-wrapper {
     max-width: 1150px;
-    margin: 95px auto;
+    margin: 85px auto;
     padding: 0 20px;
     overflow: hidden;
     color: $dark-text;

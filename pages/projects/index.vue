@@ -3,7 +3,7 @@
         <transition appear appear-active-class="slide-in">
             <h1 ref="pageTitle" class="page-title">Projects</h1>
         </transition>
-        <div class="project-list">
+        <div class="project-list noselect">
             <transition-group ref="projectRow" appear appear-active-class="fade-in" class="project-row" tag="div">
                 <nuxt-link
                     v-for="(project, index) in projectList"
@@ -62,8 +62,8 @@ export default {
                 {
                     title: 'Delaware Investments',
                     href: 'delaware',
-                    icon: 'tidal',
-                    iconSrc: require('~/assets/images/project-icons/tidal-logo.png'),
+                    icon: 'delaware',
+                    iconSrc: require('~/assets/images/project-icons/delaware-logo.png'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
                         require('~/assets/images/logos/logo-highcharts.png'),
@@ -74,18 +74,18 @@ export default {
                 {
                     title: 'Untra',
                     href: 'untra',
-                    icon: 'tidal',
-                    iconSrc: require('~/assets/images/project-icons/tidal-logo.png'),
+                    icon: 'untra',
+                    iconSrc: require('~/assets/images/project-icons/untra-logo.png'),
                     logoList: [
                         require('~/assets/images/logos/logo-wordpress.png'),
                         require('~/assets/images/logos/logo-adobe.png'),
                     ],
                 },
                 {
-                    title: 'Personal Fun',
+                    title: 'Personal Work',
                     href: 'personal',
-                    icon: 'tidal',
-                    iconSrc: require('~/assets/images/project-icons/tidal-logo.png'),
+                    icon: 'personal',
+                    iconSrc: require('~/assets/images/project-icons/personal-logo.png'),
                     logoList: [
                         require('~/assets/images/logos/logo-threejs.png'),
                         require('~/assets/images/logos/logo-vue.png'),
@@ -119,6 +119,7 @@ export default {
 
 .project-wrapper {
     width: 100%;
+    background-color: darken($eggshell-color, 2%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -142,6 +143,7 @@ export default {
     .title {
         margin-top: 0px;
         margin-left: 5px;
+        font-weight: 300;
     }
 }
 
@@ -153,7 +155,7 @@ a[class*="icon-"] {
 
         .icon {
             position: absolute;
-            max-width: 60%;
+            max-width: 55%;
 
             &.mid {
                 opacity: 0.65;
@@ -179,20 +181,91 @@ a[class*="icon-"] {
 
     &[class*="-tidal"] {
         .icon {
-            bottom: 20%;
-            left: 0;
-            transform: rotate(80deg);
+            max-width: 70%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-60%) rotate(-10deg);
 
             &.mid {
-                bottom: 50%;
-                left: 10%;
-                transform: rotate(110deg);
+                top: 25%;
+                left: 50%;
+                transform: translateX(-51%) rotate(-10deg);
             }
 
             &.light {
-                bottom: 75%;
-                left: 30%;
-                transform: rotate(140deg);
+                top: 50%;
+                left: 56%;
+                transform: translateX(-50%) rotate(-10deg);
+            }
+        }
+    }
+
+    &[class*="-delaware"] {
+        .icon {
+            bottom: 5%;
+            left: 5%;
+            transform: rotate(80deg);
+
+            @include bp(laptop) {
+                bottom: 10%;
+            }
+
+            &.mid {
+                bottom: 35%;
+                left: 15%;
+                transform: rotate(110deg);
+
+                @include bp(laptop) {
+                    bottom: 40%;
+                }
+            }
+
+            &.light {
+                bottom: 60%;
+                left: 35%;
+                transform: rotate(130deg);
+
+                @include bp(laptop) {
+                    bottom: 65%;
+                }
+            }
+        }
+    }
+    &[class*="-untra"] {
+        .icon {
+            top: 38%;
+            left: 35%;
+            transform: rotate(-20deg);
+
+            &.mid {
+                top: 27%;
+                left: 5%;
+                transform: rotate(60deg);
+            }
+
+            &.light {
+                top: 2%;
+                left:10%;
+                transform: rotate(150deg);
+            }
+        }
+    }
+    &[class*="-personal"] {
+        .icon {
+            top: 60%;
+            left: 15%;
+            transform: rotate(-10deg);
+
+            &.mid {
+                top: 30%;
+                left: 40%;
+                transform: rotate(30deg);
+            }
+
+            &.light {
+                top: 0;
+                left:5%;
+                transform: rotate(-30deg);
             }
         }
     }
