@@ -82,21 +82,21 @@ export default {
                     ],
                 },
                 {
-                    title: 'Latinx Heritage Month \'17',
-                    href: 'latinx',
+                    title: 'Dynamix Embed Matrix',
+                    href: 'embedmatrix',
                     bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
-                        require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
                         require('~/assets/images/logos/logo-sass.png'),
                     ],
                 },
                 {
-                    title: 'Dynamix Embed Matrix',
-                    href: 'embedmatrix',
+                    title: 'Latinx Heritage Month \'17',
+                    href: 'latinx',
                     bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
+                        require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
                         require('~/assets/images/logos/logo-sass.png'),
@@ -118,26 +118,6 @@ export default {
                     bgImg: require('~/assets/images/space-bg.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
-                        require('~/assets/images/logos/logo-angular.png'),
-                        require('~/assets/images/logos/logo-node.png'),
-                        require('~/assets/images/logos/logo-sass.png'),
-                    ],
-                },
-                {
-                    title: 'Wench',
-                    href: 'wench',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
-                    logoList: [
-                        require('~/assets/images/logos/logo-angular.png'),
-                        require('~/assets/images/logos/logo-node.png'),
-                        require('~/assets/images/logos/logo-sass.png'),
-                    ],
-                },
-                {
-                    title: 'Songwriter\'s Hall of Fame',
-                    href: 'shof',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
-                    logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
                         require('~/assets/images/logos/logo-sass.png'),
