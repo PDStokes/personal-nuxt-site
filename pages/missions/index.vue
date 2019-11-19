@@ -1,7 +1,7 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">Projects</h1>
+            <h1 ref="pageTitle" class="page-title">Mission Log</h1>
         </transition>
         <div class="project-list noselect">
             <transition-group ref="projectRow" appear appear-active-class="fade-in" class="project-row" tag="div">

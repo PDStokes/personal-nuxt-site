@@ -104,7 +104,7 @@ export default {
 }
 
 .card-logos {
-    background-color: rgba(238, 238, 238, 0.95);
+    background-color: rgb(238, 238, 238);
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     padding: 10px;

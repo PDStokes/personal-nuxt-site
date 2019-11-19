@@ -5,10 +5,10 @@
                 <nuxt-link class="nav-link noselect" to="/">Galaxy</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/projects">Projects</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/missions">Missions</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/resume">Resume</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/status-report">Status Report</nuxt-link>
             </li>
         </ul>
     </nav>

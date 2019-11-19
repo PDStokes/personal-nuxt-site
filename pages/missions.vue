@@ -4,14 +4,14 @@
 
 <script>
 export default {
-    name: 'Projects',
+    name: 'Missions',
     head () {
         return {
-            title: 'Projects',
+            title: 'Missions',
         };
     },
     meta: {
-        pageName: 'Projects',
+        pageName: 'Missions',
     },
 };
 </script>

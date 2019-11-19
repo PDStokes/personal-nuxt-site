@@ -2,8 +2,8 @@
     <main ref="threeCanvas" class="canvas" :class="{ 'space-bg' : !loading }">
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
         <div v-else class="welcome">
-            <h1 class="noselect">Welcome to my site</h1>
-            <nuxt-link to="/projects" class="enter-button">Enter</nuxt-link>
+            <h1 class="noselect">Welcome to the solar system</h1>
+            <nuxt-link to="/missions" class="enter-button">Enter</nuxt-link>
         </div>
     </main>
 </template>
@@ -170,9 +170,9 @@ export default {
             // Generates planets and lines based on max
             for (let i = 0; i <= max; i++) {
                 // Initialize Random Location
-                const x = plusMinus() * (Math.floor(Math.random() * 25));
-                const y = plusMinus() * (Math.floor(Math.random() * 15));
-                const z = plusMinus() * (Math.floor(Math.random() * 25));
+                const x = plusMinus() * (Math.floor(Math.random() * (25 - 5) + 5));
+                const y = plusMinus() * (Math.floor(Math.random() * (15 - 5) + 5));
+                const z = plusMinus() * (Math.floor(Math.random() * (25 - 5) + 5));
 
                 // Initialize Random Radius and Poly count
                 const radius = (Math.random() * (0.9 - 0.15) + 0.15).toFixed(2);
@@ -240,6 +240,18 @@ export default {
                 this.scenePolys.push(planet);
                 this.objParent.add(planet);
             }
+            // LET THERE BE LIGHT
+            const sunGeo = new THREE.SphereBufferGeometry(4, 20, 20);
+            const sunMat = new THREE.MeshStandardMaterial({
+                color: 0xf7e927,
+                metalness: 0,
+                roughness: 1,
+                flatShading: true,
+                emissive: 0x6b4d00,
+                emissiveIntensity: 2,
+            });
+            const sun = new THREE.Mesh(sunGeo, sunMat);
+            this.objParent.add(sun);
             this.scene.add(this.objParent);
         },
     },
@@ -269,17 +281,17 @@ export default {
     width: 100%;
     left: 0; right: 0;
     text-align: center;
-    background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.5) 80%, rgba(0,0,0,0) 100% );
+    background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 20%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0) 100% );
 
     @include bp(not-phone) {
         font-size: 3rem;
     }
 
     .enter-button {
-        border: 2px solid white;
+        // border: 2px solid white;
         border-radius: 5px;
         padding: 10px 50px;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.15);
         transition: background-color 0.25s;
         color: white;
         font-family: $sans-font;
@@ -288,7 +300,8 @@ export default {
 
         &:hover {
             transition: background-color 0.25s;
-            background-color: rgba(255, 255, 255, 0.45);
+            background-color: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
     }
 }
