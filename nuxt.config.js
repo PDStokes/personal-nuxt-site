@@ -32,15 +32,13 @@ export default {
   */
     plugins: [
         '~/plugins/cardAnimation.js',
+        // { src: '~/plugins/threePlugin.js', mode: 'client' },
     ],
     /*
   ** Nuxt.js modules
   */
     modules: [
         '@nuxtjs/style-resources',
-        // ['~/modules/directoryList/module.js', {
-        //     path: './pages/projects/project',
-        // }],
     ],
     styleResources: {
         scss: '~/assets/scss/base/*.scss',
@@ -49,13 +47,6 @@ export default {
   ** Build configuration
   */
     build: {
-    /*
-    ** You can extend webpack config here
-    */
-        extend (config, ctx) {
-            config.module.rules.push({
-
-            });
-        },
+        transpile: ['three/examples/jsm/postprocessing'],
     },
 };

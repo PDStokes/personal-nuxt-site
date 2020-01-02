@@ -85,9 +85,9 @@ export default {
 
 @for $i from 0 through 2 {
     .level-#{$i} {
-        background-color: lighten($site-base-color, $i * 10%);
+        background-color: lighten($site-base-color, $i * 15%);
         &:after {
-            background-color: lighten($site-base-color, $i * 10%);
+            background-color: lighten($site-base-color, $i * 15%);
         }
     }
 }

@@ -100,7 +100,7 @@ export default {
     border-top:1px solid rgba(0,0,0,.2);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    box-shadow: 5px 0px 25px rgba(0,0,0,0.75);
+    box-shadow: 5px 0px 25px rgba(0,0,0,0.5);
 }
 
 .card-logos {
@@ -116,10 +116,7 @@ export default {
     flex-wrap: wrap;
     z-index: 0;
     transition: opacity 0.35s;
-
-    @include bp(tablet) {
-        opacity: 0;
-    }
+    opacity: 0;
 
 }
 

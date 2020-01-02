@@ -10,6 +10,10 @@
 
 <script>
 import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { BloomPass } from 'three/examples/jsm/postprocessing/BloomPass';
+import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
 
 export default {
     data () {
@@ -17,11 +21,13 @@ export default {
             scene: null,
             camera: null,
             renderer: null,
+            composer: null,
             scenePolys: [],
             lineArr: [],
             objParent: null,
             animReq: null,
             loading: true,
+            clock: new THREE.Clock(),
             trailLength: 100,
             planetCount: 75,
         };
@@ -53,6 +59,27 @@ export default {
         this.renderer.setSize(width, height);
         this.renderer.setClearColor(0xffffff, 0);
         this.$refs.threeCanvas.appendChild(this.renderer.domElement);
+
+        // Initialize EffectComposer, add initial RenderPass, and add Bloom + FilmGrain passes
+        this.composer = new EffectComposer(this.renderer);
+        this.composer.addPass(new RenderPass(this.scene, this.camera));
+
+        const bloomPass = new BloomPass(
+            1,
+            25,
+            1,
+            256,
+        );
+        // this.composer.addPass(bloomPass);
+
+        const filmPass = new FilmPass(
+            0.35,
+            0.25,
+            648,
+            true,
+        );
+        filmPass.renderToScreen = true;
+        this.composer.addPass(filmPass);
 
         // Initialize AMBIENT LIGHT
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
@@ -121,7 +148,9 @@ export default {
             });
         },
         renderScene () {
-            this.renderer.render(this.scene, this.camera);
+            // this.renderer.render(this.scene, this.camera);
+            const deltaTime = this.clock.getDelta();
+            this.composer.render(deltaTime);
         },
         spawnObjects (max) {
             // Random pos/neg sign

@@ -83,7 +83,8 @@ p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: $site-lighter-color;
+    background-color: lighten($site-lighter-color, 5%);
+    border: 1px solid darken($site-lighter-color, 5%);
     width: fit-content;
     padding: 10px;
     border-radius: 5px;
@@ -133,6 +134,7 @@ p {
 .tool-box--role {
     @extend .tool-box;
     width: auto;
+    border: none;
     margin-bottom: 40px;
     justify-content: space-evenly;
     background-color: $site-lightest-color;

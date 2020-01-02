@@ -252,12 +252,12 @@ a[class*="icon-"] {
     }
     &[class*="-personal"] {
         .icon {
-            top: 60%;
+            top: 50%;
             left: 15%;
             transform: rotate(-10deg);
 
             &.mid {
-                top: 30%;
+                top: 25%;
                 left: 40%;
                 transform: rotate(30deg);
             }
