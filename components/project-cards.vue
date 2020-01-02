@@ -123,7 +123,6 @@ export default {
 .logo {
     width: 24%;
     margin: 5px 4%;
-    max-height: 45%;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }

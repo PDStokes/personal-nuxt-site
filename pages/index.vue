@@ -76,7 +76,7 @@ export default {
             0.35,
             0.25,
             648,
-            true,
+            false,
         );
         filmPass.renderToScreen = true;
         this.composer.addPass(filmPass);

@@ -11,7 +11,7 @@
                     <div class="split-2">
                         <h2 class="role">Role: Support</h2>
                         <p class="bold">Description:</p>
-                        <p>During the complete overhaul of TIDAL's website, I aided in creating pages and breaking out reusable componenets, utilizing our new stylguide, which streamlined both design and code to be uniform throughout.</p>
+                        <p>During the complete overhaul of TIDAL's website, I aided in creating pages and breaking out reusable components; utilizing our new stylguide, which streamlined both design and code to be uniform throughout.</p>
                     </div>
                     <div class="split-2">
                         <div class="tool-box">

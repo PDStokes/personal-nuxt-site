@@ -2,7 +2,7 @@
     <nav class="nav-bar-wrapper">
         <ul class="nav-bar">
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/">Galaxy</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/">Solar System</nuxt-link>
             </li>
             <li class="nav-item">
                 <nuxt-link class="nav-link noselect" to="/missions">Missions</nuxt-link>
@@ -24,7 +24,7 @@
 }
 
 .nav-bar {
-    max-width: 1200px;
+    max-width: $max-content-width + 25px;
     width: 100%;
     margin: 0 auto;
     padding: 10px 0;
@@ -32,6 +32,7 @@
     align-items: center;
     justify-content: space-evenly;
     @include bp(not-phone) {
+        padding: 10px 15px;
         justify-content: flex-start;
     }
 }
