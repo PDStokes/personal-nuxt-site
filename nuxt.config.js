@@ -49,6 +49,7 @@ export default {
     build: {
         transpile: [
             'three/examples/jsm/postprocessing',
+            'three/examples/jsm/shaders',
             'three/examples/jsm/controls/OrbitControls',
         ],
     },

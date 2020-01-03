@@ -2,7 +2,7 @@
     <main ref="threeCanvas" class="canvas" :class="{ 'space-bg' : !loading }">
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
         <div v-else class="welcome">
-            <h1 class="noselect">Welcome to the solar system</h1>
+            <h1 class="title noselect">Welcome to the solar system</h1>
             <nuxt-link to="/missions" class="enter-button noselect">Enter</nuxt-link>
         </div>
     </main>
@@ -12,8 +12,11 @@
 import * as THREE from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
+import { RGBShiftShader } from 'three/examples/jsm/shaders/RGBShiftShader';
+import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export default {
@@ -53,7 +56,7 @@ export default {
         // Initialize SCENE and CAMERA
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-        this.camera.position.set(0, 0, 35);
+        this.camera.position.set(0, 0, 40);
 
         // Initialize RENDERER and add to DOM
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -62,18 +65,28 @@ export default {
         this.renderer.setClearAlpha(0);
         this.$refs.threeCanvas.appendChild(this.renderer.domElement);
 
-        // Initialize EffectComposer, add initial RenderPass, and add Bloom + FilmGrain passes
+        // Initialize EffectComposer
         this.composer = new EffectComposer(this.renderer);
         this.composer.addPass(new RenderPass(this.scene, this.camera));
 
+        const rgbShift = new ShaderPass(RGBShiftShader);
+        rgbShift.uniforms[ 'amount' ].value = 0.003;
+        this.composer.addPass(rgbShift);
+
+        const vignette = new ShaderPass(VignetteShader);
+        vignette.uniforms[ 'offset' ].value = 1.3;
+        this.composer.addPass(vignette);
+
+        // Bloom pass
         const uBloomPass = new UnrealBloomPass(new THREE.Vector2(width, height), 1.5, 0.4, 0.85);
         this.composer.addPass(uBloomPass);
 
+        // Film grain pass
         const filmPass = new FilmPass(
-            0.35,
-            0.25,
-            648,
-            true,
+            0.35,       // noiseIntensity
+            0.25,       // scanlinesIntensity
+            648,        // scanlinesCount
+            true,      // grayscale
         );
         this.composer.addPass(filmPass);
 
@@ -210,9 +223,9 @@ export default {
             // Generates planets and lines based on max
             for (let i = 0; i <= max; i++) {
                 // Initialize Random Location
-                const x = plusMinus() * (Math.floor(Math.random() * (25 - 5) + 5));
+                const x = plusMinus() * (Math.floor(Math.random() * (25 - 8) + 8));
                 const y = plusMinus() * (Math.floor(Math.random() * (15 - 5) + 5));
-                const z = plusMinus() * (Math.floor(Math.random() * (25 - 5) + 5));
+                const z = plusMinus() * (Math.floor(Math.random() * (25 - 8) + 8));
 
                 // Initialize Random Radius and Poly count
                 const radius = (Math.random() * (0.9 - 0.15) + 0.15).toFixed(2);
@@ -281,7 +294,7 @@ export default {
                 this.objParent.add(planet);
             }
             // LET THERE BE LIGHT
-            const sunGeo = new THREE.SphereBufferGeometry(4, 20, 20);
+            const sunGeo = new THREE.SphereBufferGeometry(8, 20, 20);
             const sunMat = new THREE.MeshStandardMaterial({
                 color: 0xf7e927,
                 metalness: 0,
@@ -321,17 +334,22 @@ export default {
     width: 100%;
     left: 0; right: 0;
     text-align: center;
-    background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 20%, rgba(0,0,0,0.35) 80%, rgba(0,0,0,0) 100% );
+    background: linear-gradient( rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.2) 80%, rgba(0,0,0,0) 100% );
 
     @include bp(not-phone) {
         font-size: 3rem;
+    }
+
+    .title {
+        margin-top: 0;
+        margin-bottom: 1rem;
     }
 
     .enter-button {
         // border: 2px solid white;
         border-radius: 5px;
         padding: 10px 50px;
-        background-color: rgba(255, 255, 255, 0.15);
+        background-color: rgba(0, 0, 0, 0.25);
         transition: background-color 0.25s;
         color: white;
         font-family: $sans-font;
@@ -340,8 +358,7 @@ export default {
 
         &:hover {
             transition: background-color 0.25s;
-            background-color: rgba(255, 255, 255, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: rgba(0, 0, 0, 0.45);
         }
     }
 }
