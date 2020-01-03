@@ -47,6 +47,9 @@ export default {
   ** Build configuration
   */
     build: {
-        transpile: ['three/examples/jsm/postprocessing'],
+        transpile: [
+            'three/examples/jsm/postprocessing',
+            'three/examples/jsm/controls/OrbitControls',
+        ],
     },
 };

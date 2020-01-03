@@ -3,7 +3,7 @@
         <div v-if="loading" class="loading"><div class="lds-hourglass" /></div>
         <div v-else class="welcome">
             <h1 class="noselect">Welcome to the solar system</h1>
-            <nuxt-link to="/missions" class="enter-button">Enter</nuxt-link>
+            <nuxt-link to="/missions" class="enter-button noselect">Enter</nuxt-link>
         </div>
     </main>
 </template>
@@ -12,8 +12,9 @@
 import * as THREE from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { BloomPass } from 'three/examples/jsm/postprocessing/BloomPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export default {
     data () {
@@ -58,27 +59,22 @@ export default {
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setSize(width, height);
         this.renderer.setClearColor(0xffffff, 0);
+        this.renderer.setClearAlpha(0);
         this.$refs.threeCanvas.appendChild(this.renderer.domElement);
 
         // Initialize EffectComposer, add initial RenderPass, and add Bloom + FilmGrain passes
         this.composer = new EffectComposer(this.renderer);
         this.composer.addPass(new RenderPass(this.scene, this.camera));
 
-        const bloomPass = new BloomPass(
-            1,
-            25,
-            1,
-            256,
-        );
-        // this.composer.addPass(bloomPass);
+        const uBloomPass = new UnrealBloomPass(new THREE.Vector2(width, height), 1.5, 0.4, 0.85);
+        this.composer.addPass(uBloomPass);
 
         const filmPass = new FilmPass(
             0.35,
             0.25,
             648,
-            false,
+            true,
         );
-        filmPass.renderToScreen = true;
         this.composer.addPass(filmPass);
 
         // Initialize AMBIENT LIGHT
@@ -94,9 +90,24 @@ export default {
         pointLightBounce.position.set(0, -20, 0);
         this.scene.add(pointLightBounce);
 
+        // Load skybox
+        const loader = new THREE.CubeTextureLoader();
+        const bgTexture = loader.load([
+            require('../assets/images/spacebox/pos_x.jpg'),
+            require('../assets/images/spacebox/neg_x.jpg'),
+            require('../assets/images/spacebox/pos_y.jpg'),
+            require('../assets/images/spacebox/neg_y.jpg'),
+            require('../assets/images/spacebox/pos_z.jpg'),
+            require('../assets/images/spacebox/neg_z.jpg'),
+        ]);
+        this.scene.background = bgTexture;
+
         // Initialize Geo
         this.objParent = new THREE.Group();
         this.spawnObjects(this.planetCount);
+
+        const controls = new OrbitControls(this.camera, this.renderer.domElement);
+        controls.update();
 
         // Start animation and render
         this.runScene();
@@ -296,7 +307,7 @@ export default {
 }
 
 .space-bg {
-    background: url('~assets/images/space-bg.jpg') center / cover no-repeat black;
+    background: black;
 }
 
 .welcome {
