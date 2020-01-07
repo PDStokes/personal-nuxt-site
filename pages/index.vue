@@ -18,6 +18,7 @@ import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
 import { RGBShiftShader } from 'three/examples/jsm/shaders/RGBShiftShader';
 import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { DesaturateShader } from '../plugins/DesaturateShader';
 
 export default {
     data () {
@@ -55,7 +56,7 @@ export default {
 
         // Initialize SCENE and CAMERA
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+        this.camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 200);
         this.camera.position.set(0, 0, 40);
 
         // Initialize RENDERER and add to DOM
@@ -70,7 +71,7 @@ export default {
         this.composer.addPass(new RenderPass(this.scene, this.camera));
 
         const rgbShift = new ShaderPass(RGBShiftShader);
-        rgbShift.uniforms[ 'amount' ].value = 0.003;
+        rgbShift.uniforms[ 'amount' ].value = 0.0025;
         this.composer.addPass(rgbShift);
 
         const vignette = new ShaderPass(VignetteShader);
@@ -86,16 +87,20 @@ export default {
             0.35,       // noiseIntensity
             0.25,       // scanlinesIntensity
             648,        // scanlinesCount
-            true,      // grayscale
+            false,      // grayscale
         );
         this.composer.addPass(filmPass);
+
+        const desaturate = new ShaderPass(DesaturateShader);
+        desaturate.uniforms[ 'saturation' ].value = 0.25;
+        this.composer.addPass(desaturate);
 
         // Initialize AMBIENT LIGHT
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
         this.scene.add(ambientLight);
 
         // Initialize POINT LIGHTS
-        const pointLight = new THREE.PointLight(0xffffff, 0.85);
+        const pointLight = new THREE.PointLight(0xffffff, 0.8);
         pointLight.position.set(0, 20, 5);
         this.scene.add(pointLight);
 
@@ -232,7 +237,7 @@ export default {
                 const detail = Math.floor(Math.random() * 3 + 1);
 
                 // Initialize Random Color
-                const color = new THREE.Color('hsl(' + colorVal(0, 358) + ', ' + colorVal(55, 80) + '%, ' + colorVal(50, 80) + '%)');
+                const color = new THREE.Color('hsl(' + colorVal(0, 358) + ', ' + colorVal(30, 55) + '%, ' + colorVal(50, 80) + '%)');
 
                 // Initialize parent group, material, and geo
                 const planet = new THREE.Group();
@@ -296,12 +301,12 @@ export default {
             // LET THERE BE LIGHT
             const sunGeo = new THREE.SphereBufferGeometry(8, 20, 20);
             const sunMat = new THREE.MeshStandardMaterial({
-                color: 0xf7e927,
+                color: 0xf8f07c,
                 metalness: 0,
                 roughness: 1,
                 flatShading: true,
-                emissive: 0x6b4d00,
-                emissiveIntensity: 2,
+                emissive: 0xf4e727,
+                emissiveIntensity: 2.25,
             });
             const sun = new THREE.Mesh(sunGeo, sunMat);
             this.objParent.add(sun);
