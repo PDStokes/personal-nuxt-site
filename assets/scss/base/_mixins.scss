@@ -4,7 +4,7 @@
             @content;
         }
     } @else if $size == 'not-phone' {
-        @media (min-width: 425px) {
+        @media (min-width: 426px) {
             @content;
         }
     } @else if $size == 'tablet' {

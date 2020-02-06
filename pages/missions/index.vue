@@ -32,7 +32,6 @@
                     </div>
                 </nuxt-link>
             </transition-group>
-            <!-- <projectCards ref="cardComponent" :projects="projectList" /> -->
         </div>
     </main>
 </template>
@@ -101,6 +100,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.content-wrapper {
+    margin-bottom: 0;
+}
 
 .project-row {
     width: 100%;

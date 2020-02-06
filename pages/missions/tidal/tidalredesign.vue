@@ -1,39 +1,32 @@
 <template>
-    <main class="content-wrapper">
-        <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">TIDAL Redesign</h1>
-        </transition>
-
-        <transition appear appear-active-class="fade-in">
-            <section ref="pageContent" class="page-content">
-                <p class="font-large quote">Complete redesign and framework transition.</p>
-                <div class="project-box">
-                    <div class="split-2">
-                        <h2 class="role">Role: Support</h2>
-                        <p class="bold">Description:</p>
-                        <p>During the complete overhaul of TIDAL's website, I aided in creating pages and breaking out reusable components; utilizing our new stylguide, which streamlined both design and code to be uniform throughout.</p>
-                    </div>
-                    <div class="split-2">
-                        <div class="tool-box">
-                            <img
-                                v-for="logo in logoList"
-                                :key="logo"
-                                class="tool"
-                                :src="logo"
-                            >
-                        </div>
-                    </div>
+    <main>
+        <project-page
+            ref="projectComponent"
+            :background-image="require('assets/images/tidal/redesign/redesign-bg.jpg')"
+            project-title="TIDAL Redesign"
+            project-subtitle="Complete redesign and framework transition."
+            :logo-list="logoList"
+            role-copy="Support"
+            description-copy="During the complete overhaul of TIDAL's website, I aided in creating pages and breaking out reusable components; utilizing our new stylguide, which streamlined both design and code to be uniform throughout."
+        >
+            <template v-slot:project-content>
+                <div>
+                    <h1>Look some CONTENT</h1>
                 </div>
-            </section>
-        </transition>
+            </template>
+        </project-page>
     </main>
 </template>
 
 <script>
-import { leaveAnim } from '~/plugins/cardAnimation.js';
+import { projectLeaveAnim } from '~/plugins/pageAnimation.js';
+import projectPage from '~/components/project-page.vue';
 
 export default {
-    mixins: [leaveAnim],
+    components: {
+        projectPage,
+    },
+    mixins: [projectLeaveAnim],
     head () {
         return {
             title: 'TIDAL Redesign',
@@ -57,4 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 
+main /deep/ .main-image-bg {
+    @include bp(tablet-only) {
+        background-position: 80%;
+    }
+}
 </style>

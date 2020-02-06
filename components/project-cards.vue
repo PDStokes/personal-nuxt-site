@@ -92,7 +92,7 @@ export default {
 
 .card-info {
     bottom: 0; left: 0; right: 0;
-    background-color: $nasa-blue;
+    background-color: $nasa-red;
     color: white;
     width: 100%;
     position: absolute;
@@ -121,7 +121,7 @@ export default {
 }
 
 .logo {
-    width: 24%;
+    width: 15%;
     margin: 5px 4%;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);

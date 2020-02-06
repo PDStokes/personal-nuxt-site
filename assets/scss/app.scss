@@ -96,13 +96,17 @@ p {
     }
 
     .tool {
-        max-width: 60px;
+        max-width: 50px;
         margin-right: 20px;
         -webkit-filter: saturate(0.35);
         filter: saturate(0.35);
 
         &:last-child {
             margin-right: 0;
+        }
+
+        @include bp(laptop) {
+            max-width: 60px;
         }
     }
 
@@ -194,10 +198,15 @@ p {
 
 .content-wrapper {
     max-width: $max-content-width;
-    margin: 85px auto;
+    margin: 50px auto;
     padding: 0 20px;
     overflow: hidden;
+    position: relative;
     color: $dark-text;
+
+    &.project {
+        margin-top: 0;
+    }
 }
 
 .centered {
@@ -207,8 +216,12 @@ p {
 }
 
 .page-content {
-    margin-bottom: 80px;
-    animation-delay: 0.25s
+    margin: 40px auto;
+    animation-delay: 0.25s;
+
+    &.project {
+        margin: 80px auto;
+    }
 }
 
 // ANIMATIONS

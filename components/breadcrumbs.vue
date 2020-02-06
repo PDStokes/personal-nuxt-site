@@ -27,12 +27,7 @@ export default {
         breadCrumbs () {
             const matchedRoutes = this.$route.matched;
             const metaTags = this.$nuxt.$options.context.route.meta;
-            let crumbs = [];
-            if (matchedRoutes.length > 1) {
-                crumbs = this.generateCrumbs(matchedRoutes, metaTags);
-            } else {
-                crumbs = 0;
-            }
+            const crumbs = this.generateCrumbs(matchedRoutes, metaTags);
             this.enterCheck(crumbs);
             return crumbs;
         },
@@ -69,15 +64,15 @@ export default {
 .breadcrumb-wrapper {
     width: 100%;
     position: absolute;
-    top: 65px;
+    top: 25px;
     overflow: hidden;
 }
 
 .breadcrumb-bar {
     max-width: 1150px;
-    padding: 0 20px;
-    margin: 0 auto;
-    width: 100%;
+    padding: 0;
+    margin-left: 0;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: flex-start;
