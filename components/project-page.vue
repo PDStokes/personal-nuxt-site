@@ -3,15 +3,15 @@
         <div class="main-image-bg" :style="{ backgroundImage: `url(${backgroundImage})` }">
             <transition appear appear-active-class="slide-in">
                 <div class="title-wrapper">
-                    <h1 ref="pageTitle" class="project-title" v-html="filteredTitle" />
-                    <p ref="pageSubTitle" class="project-subtitle">{{ projectSubtitle }}</p>
+                    <h1 ref="slideOut" class="project-title" v-html="filteredTitle" />
+                    <p ref="slideOut" class="project-subtitle">{{ projectSubtitle }}</p>
                 </div>
             </transition>
         </div>
         <div class="content-wrapper project">
             <breadcrumbs ref="breadCrumb" />
             <transition appear appear-active-class="fade-in">
-                <section ref="pageContent" class="page-content project">
+                <section ref="fadeOut" class="page-content project">
                     <div class="project-box">
                         <div class="split-2">
                             <h2 class="role">Role: {{ roleCopy }}</h2>

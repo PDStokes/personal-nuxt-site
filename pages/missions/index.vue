@@ -1,13 +1,14 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">Mission Log</h1>
+            <h1 ref="slideOut" class="page-title">Mission Log</h1>
         </transition>
         <div class="project-list noselect">
-            <transition-group ref="projectRow" appear appear-active-class="fade-in" class="project-row" tag="div">
+            <transition-group ref="delayedComponent" appear appear-active-class="fade-in" class="project-row" tag="div">
                 <nuxt-link
                     v-for="(project, index) in projectList"
                     :key="project.title"
+                    ref="delayFadeOut"
                     class="project-wrapper"
                     :class="`icon-${project.icon}`"
                     :style="{animationDelay: 0.15 * index + `s`}"
@@ -37,10 +38,8 @@
 </template>
 
 <script>
-import { leaveAnim } from '~/plugins/cardAnimation.js';
 
 export default {
-    mixins: [leaveAnim],
     computed: {
         projectList () {
             return [

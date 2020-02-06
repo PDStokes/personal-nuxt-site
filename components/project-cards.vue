@@ -1,8 +1,9 @@
 <template>
-    <transition-group ref="cardRow" appear appear-active-class="fade-in" class="project-row" tag="div">
+    <transition-group appear appear-active-class="fade-in" class="project-row" tag="div">
         <nuxt-link
             v-for="(project, index) in projects"
             :key="project.title"
+            ref="delayFadeOut"
             class="card-wrapper"
             :style="{background: `url(${project.bgImg}) center / cover no-repeat`, animationDelay: 0.15 * index + `s`}"
             :to="project.href"

@@ -1,39 +1,43 @@
+import Vue from 'vue';
+
+const classAdd = (elems, className) => {
+    if (elems.length) {
+        elems.forEach((elem) => {
+            elem.classList.add(className);
+        });
+    } else {
+        elems.classList.add(className);
+    }
+};
+
 const leaveAnim = {
     scrollToTop: true,
     beforeRouteLeave (to, from, next) {
-        const pageTitle = typeof this.$refs.pageTitle !== 'undefined' ? this.$refs.pageTitle : null;
-        const pageSubTitle = typeof this.$refs.pageSubTitle !== 'undefined' ? this.$refs.pageSubTitle : null;
-        const pageContent = typeof this.$refs.pageContent !== 'undefined' ? this.$refs.pageContent : null;
-        const cardChildren = typeof this.$refs.cardComponent !== 'undefined' ? this.$refs.cardComponent.$children[0].$children : null;
-        const projectChildren = typeof this.$refs.projectRow !== 'undefined' ? this.$refs.projectRow.$children : null;
+        const slideOut = typeof this.$refs.slideOut !== 'undefined' ? this.$refs.slideOut : null;
+        const fadeOut = typeof this.$refs.fadeOut !== 'undefined' ? this.$refs.fadeOut : null;
+        const delayFadeOut = typeof this.$refs.delayedComponent !== 'undefined' ? this.$refs.delayedComponent.$refs.delayFadeOut || this.$refs.delayFadeOut : null;
         let timeout = 750;
 
-        if (cardChildren) {
-            timeout = (cardChildren.length * 0.5) / 2 * 1000;
+        if (delayFadeOut) {
+            timeout = (delayFadeOut.length * 0.5) / 2 * 1000;
 
-            cardChildren.forEach((elem) => {
+            delayFadeOut.forEach((elem) => {
                 elem.$el.classList.add('fade-out');
             });
         }
 
-        if (projectChildren) {
-            timeout = (projectChildren.length * 0.5) / 2 * 1000;
-
-            projectChildren.forEach((elem) => {
-                elem.$el.classList.add('fade-out');
-            });
+        if (slideOut) {
+            classAdd(slideOut, 'slide-out');
         }
 
-        if (pageTitle) {
-            pageTitle.classList.add('slide-out');
+        if (fadeOut) {
+            classAdd(fadeOut, 'fade-out');
         }
 
-        if (pageSubTitle) {
-            pageSubTitle.classList.add('slide-out');
-        }
-
-        if (pageContent) {
-            pageContent.classList.add('fade-out');
+        if (this.$refs.projectComponent) {
+            const breadCrumb = this.$refs.projectComponent.$refs.breadCrumb.$refs.crumbBar !== 'undefined' ? this.$refs.projectComponent.$refs.breadCrumb.$refs.crumbBar : null;
+            breadCrumb.classList.remove('slide-in');
+            breadCrumb.classList.add('slide-out');
         }
 
         setTimeout(() => {
@@ -42,4 +46,4 @@ const leaveAnim = {
     },
 };
 
-export { leaveAnim };
+Vue.mixin(leaveAnim);

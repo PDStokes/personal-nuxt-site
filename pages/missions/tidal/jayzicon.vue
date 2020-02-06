@@ -19,21 +19,11 @@
 </template>
 
 <script>
-import { projectLeaveAnim } from '~/plugins/pageAnimation.js';
 import projectPage from '~/components/project-page.vue';
 
 export default {
     components: {
         projectPage,
-    },
-    mixins: [projectLeaveAnim],
-    head () {
-        return {
-            title: 'JAY-Z ICON',
-        };
-    },
-    meta: {
-        pageName: 'JAY-Z ICON',
     },
     data () {
         return {
@@ -48,6 +38,14 @@ export default {
                 'Custom design and animation',
             ],
         };
+    },
+    head () {
+        return {
+            title: 'JAY-Z ICON',
+        };
+    },
+    meta: {
+        pageName: 'JAY-Z ICON',
     },
 };
 </script>

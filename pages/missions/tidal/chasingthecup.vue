@@ -1,11 +1,11 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">Chasing The Cup</h1>
+            <h1 ref="slideOut" class="page-title">Chasing The Cup</h1>
         </transition>
 
         <transition appear appear-active-class="fade-in">
-            <section ref="pageContent" class="page-content">
+            <section ref="fadeOut" class="page-content">
                 <p class="font-large quote">Interactive map and playlist landing page for FIFA World Cup campaign.</p>
                 <div class="project-box">
                     <div class="split-2">
@@ -34,10 +34,8 @@
 </template>
 
 <script>
-import { leaveAnim } from '~/plugins/cardAnimation.js';
 
 export default {
-    mixins: [leaveAnim],
     head () {
         return {
             title: 'Chasing The Cup',

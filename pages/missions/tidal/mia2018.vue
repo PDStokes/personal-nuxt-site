@@ -1,11 +1,11 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">Made In America 2018</h1>
+            <h1 ref="slideOut" class="page-title">Made In America 2018</h1>
         </transition>
 
         <transition appear appear-active-class="fade-in">
-            <section ref="pageContent" class="page-content">
+            <section ref="fadeOut" class="page-content">
                 <p class="font-large quote">Livestream platform for Made In America Festival 2018.</p>
                 <div class="project-box">
                     <div class="split-2">
@@ -34,10 +34,8 @@
 </template>
 
 <script>
-import { leaveAnim } from '~/plugins/cardAnimation.js';
 
 export default {
-    mixins: [leaveAnim],
     head () {
         return {
             title: 'MIA 2018',

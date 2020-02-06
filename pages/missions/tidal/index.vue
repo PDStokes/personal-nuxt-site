@@ -1,10 +1,10 @@
 <template>
     <main class="content-wrapper">
         <transition appear appear-active-class="slide-in">
-            <h1 ref="pageTitle" class="page-title">TIDAL</h1>
+            <h1 ref="slideOut" class="page-title">TIDAL</h1>
         </transition>
         <transition appear appear-active-class="fade-in">
-            <section ref="pageContent" class="page-content">
+            <section ref="fadeOut" class="page-content">
                 <p class="font-large quote">Tidal is a subscription-based music streaming service that combines lossless audio and high-definition music videos with exclusive content and special features on music.</p>
                 <div class="tool-box--role">
                     <img
@@ -28,24 +28,17 @@
             </section>
         </transition>
         <div class="project-list">
-            <projectCards ref="cardComponent" :projects="projectList" />
+            <projectCards ref="delayedComponent" :projects="projectList" />
         </div>
     </main>
 </template>
 
 <script>
 import projectCards from '~/components/project-cards.vue';
-import { leaveAnim } from '~/plugins/cardAnimation.js';
 
 export default {
     components: {
         projectCards,
-    },
-    mixins: [leaveAnim],
-    head () {
-        return {
-            title: 'TIDAL',
-        };
     },
     computed: {
         logoList () {
@@ -125,6 +118,11 @@ export default {
                 },
             ];
         },
+    },
+    head () {
+        return {
+            title: 'TIDAL',
+        };
     },
 };
 </script>

@@ -19,21 +19,11 @@
 </template>
 
 <script>
-import { projectLeaveAnim } from '~/plugins/pageAnimation.js';
 import projectPage from '~/components/project-page.vue';
 
 export default {
     components: {
         projectPage,
-    },
-    mixins: [projectLeaveAnim],
-    head () {
-        return {
-            title: 'TIDAL Redesign',
-        };
-    },
-    meta: {
-        pageName: 'TIDAL Redesign',
     },
     data () {
         return {
@@ -44,6 +34,14 @@ export default {
                 require('~/assets/images/logos/logo-sass.png'),
             ],
         };
+    },
+    head () {
+        return {
+            title: 'TIDAL Redesign',
+        };
+    },
+    meta: {
+        pageName: 'TIDAL Redesign',
     },
 };
 </script>
