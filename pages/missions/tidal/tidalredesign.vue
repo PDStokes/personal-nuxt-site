@@ -12,6 +12,13 @@
             <template v-slot:project-content>
                 <div>
                     <h1>Look some CONTENT</h1>
+                    <img
+                        v-lazyload="{width: 1920, height: 1280}"
+                        :src="require('~/assets/images/tidal/redesign/dandan-large.jpg')"
+                        :data-largesrc="require('~/assets/images/tidal/redesign/dandan-2x.jpg')"
+                        class="big-image"
+                        alt="DAN DAN NOOODULS"
+                    >
                 </div>
             </template>
         </project-page>
@@ -52,5 +59,9 @@ main /deep/ .main-image-bg {
     @include bp(tablet-only) {
         background-position: 80%;
     }
+}
+
+.big-image {
+    width: 100%;
 }
 </style>

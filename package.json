@@ -29,6 +29,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
+    "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0"
