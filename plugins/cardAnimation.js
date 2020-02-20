@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 const classAdd = (elems, className) => {
-    if (elems.length) {
+    if (elems.length > 1) {
         elems.forEach((elem) => {
             elem.classList.add(className);
         });
@@ -13,8 +13,13 @@ const classAdd = (elems, className) => {
 const leaveAnim = {
     scrollToTop: true,
     beforeRouteLeave (to, from, next) {
-        const slideOut = typeof this.$refs.slideOut !== 'undefined' ? this.$refs.slideOut : null;
-        const fadeOut = typeof this.$refs.fadeOut !== 'undefined' ? this.$refs.fadeOut : null;
+        const animObjs = [
+            [ typeof this.$refs.slideOut !== 'undefined' ? this.$refs.slideOut : null, 'slide-out' ],
+            [ typeof this.$refs.fadeOut !== 'undefined' ? this.$refs.fadeOut : null, 'fade-out' ],
+            [ typeof this.$refs.projectComponent !== 'undefined' ? this.$refs.projectComponent.$refs.slideOut : null, 'slide-out' ],
+            [ typeof this.$refs.projectComponent !== 'undefined' ? this.$refs.projectComponent.$refs.fadeOut : null, 'fade-out' ],
+        ];
+
         const delayFadeOut = typeof this.$refs.delayedComponent !== 'undefined' ? this.$refs.delayedComponent.$refs.delayFadeOut || this.$refs.delayFadeOut : null;
         let timeout = 750;
 
@@ -26,13 +31,11 @@ const leaveAnim = {
             });
         }
 
-        if (slideOut) {
-            classAdd(slideOut, 'slide-out');
-        }
-
-        if (fadeOut) {
-            classAdd(fadeOut, 'fade-out');
-        }
+        animObjs.forEach((animType) => {
+            if (animType[0]) {
+                classAdd(animType[0], animType[1]);
+            }
+        });
 
         if (this.$refs.projectComponent) {
             const breadCrumb = this.$refs.projectComponent.$refs.breadCrumb.$refs.crumbBar !== 'undefined' ? this.$refs.projectComponent.$refs.breadCrumb.$refs.crumbBar : null;

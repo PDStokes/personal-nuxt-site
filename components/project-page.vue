@@ -2,9 +2,9 @@
     <div>
         <div class="main-image-bg" :style="{ backgroundImage: `url(${backgroundImage})` }">
             <transition appear appear-active-class="slide-in">
-                <div class="title-wrapper">
-                    <h1 ref="slideOut" class="project-title" v-html="filteredTitle" />
-                    <p ref="slideOut" class="project-subtitle">{{ projectSubtitle }}</p>
+                <div ref="slideOut" class="title-wrapper">
+                    <h1 class="project-title noselect" v-html="filteredTitle" />
+                    <p class="project-subtitle noselect">{{ projectSubtitle }}</p>
                 </div>
             </transition>
         </div>
@@ -94,8 +94,6 @@ export default {
     background: center center / cover no-repeat black;
     min-height: 95vh;
     margin-top: 40px;
-    -webkit-filter: grayscale(50%) sepia(25%);
-    filter: grayscale(50%) sepia(25%);
 }
 
 .title-wrapper {

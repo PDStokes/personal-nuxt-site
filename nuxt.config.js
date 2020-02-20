@@ -16,6 +16,9 @@ export default {
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' },
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=DM+Serif+Display' },
         ],
+        script: [
+            { src: 'https://kit.fontawesome.com/b57b99e256.js', crossorigin: 'anonymous' },
+        ],
     },
     /*
   ** Customize the progress-bar color
@@ -32,7 +35,7 @@ export default {
   */
     plugins: [
         '~/plugins/cardAnimation.js',
-        '~/plugins/lazyLoader.js',
+        '~/plugins/lazyLoaders.js',
         // { src: '~/plugins/threePlugin.js', mode: 'client' },
     ],
     /*

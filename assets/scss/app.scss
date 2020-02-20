@@ -67,6 +67,12 @@ p {
                                     supported by Chrome and Opera */
 }
 
+@for $i from 2 through 8 {
+    .margin-top-#{$i} {
+        margin-top: $i * 1rem;
+    }
+}
+
 // CONTENT + WRAPPERS
 
 .quote {
@@ -238,7 +244,7 @@ p {
     }
     to {
         opacity: 1;
-        ransform: translateY(0px);
+        transform: translateY(0px);
     }
 }
 

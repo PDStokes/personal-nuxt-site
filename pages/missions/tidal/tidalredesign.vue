@@ -11,14 +11,14 @@
         >
             <template v-slot:project-content>
                 <div>
-                    <h1>Look some CONTENT</h1>
-                    <img
-                        v-lazyload="{width: 1920, height: 1280}"
-                        :src="require('~/assets/images/tidal/redesign/dandan-large.jpg')"
-                        :data-largesrc="require('~/assets/images/tidal/redesign/dandan-2x.jpg')"
-                        class="big-image"
-                        alt="DAN DAN NOOODULS"
-                    >
+                    <h1 class="margin-top-2">Examples of pages worked on:</h1>
+                    <project-link
+                        href="https://tidal.com/partners/samsung"
+                        :image-width="1920"
+                        :image-height="540"
+                        image-src="images/tidal/redesign/partner-page.jpg"
+                        image-alt="TIDAL Partner Page"
+                    />
                 </div>
             </template>
         </project-page>
@@ -27,10 +27,12 @@
 
 <script>
 import projectPage from '~/components/project-page.vue';
+import projectLink from '~/components/project-link.vue';
 
 export default {
     components: {
         projectPage,
+        projectLink,
     },
     data () {
         return {
@@ -54,14 +56,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 main /deep/ .main-image-bg {
+    @include bp(phone) {
+        background-position: 40%;
+    }
     @include bp(tablet-only) {
         background-position: 80%;
     }
-}
-
-.big-image {
-    width: 100%;
 }
 </style>
