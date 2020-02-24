@@ -36,6 +36,7 @@ export default {
     plugins: [
         '~/plugins/cardAnimation.js',
         '~/plugins/lazyLoaders.js',
+        '~/plugins/lightBox.js',
         // { src: '~/plugins/threePlugin.js', mode: 'client' },
     ],
     /*

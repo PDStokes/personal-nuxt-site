@@ -46,7 +46,8 @@ const startObserver = (observerType) => {
 
 Vue.directive('lazyload', {
     bind: (el, binding) => {
-        el.setAttribute('src', placeholderSrc(binding.value.width, binding.value.height));
+        const defaults = binding.value ? { ...binding.value } : { width: 1, height: 1 };
+        el.setAttribute('src', placeholderSrc(defaults.width, defaults.height));
         startObserver('image');
     },
     inserted: (el, binding) => {

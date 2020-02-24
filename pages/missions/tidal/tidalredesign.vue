@@ -11,13 +11,20 @@
         >
             <template v-slot:project-content>
                 <div>
-                    <h1 class="margin-top-2">Examples of pages worked on:</h1>
+                    <h1 class="margin-top-4">Examples of pages worked on:</h1>
                     <project-link
                         href="https://tidal.com/partners/samsung"
                         :image-width="1920"
                         :image-height="540"
                         image-src="images/tidal/redesign/partner-page.jpg"
                         image-alt="TIDAL Partner Page"
+                    />
+                    <project-image
+                        :image-width="1920"
+                        :image-height="540"
+                        image-src="images/tidal/redesign/tickets-page.jpg"
+                        image-alt="TIDAL Tickets Page"
+                        large-image-src="images/tidal/redesign/tickets-page-large.jpg"
                     />
                 </div>
             </template>
@@ -28,11 +35,13 @@
 <script>
 import projectPage from '~/components/project-page.vue';
 import projectLink from '~/components/project-link.vue';
+import projectImage from '~/components/project-image.vue';
 
 export default {
     components: {
         projectPage,
         projectLink,
+        projectImage,
     },
     data () {
         return {

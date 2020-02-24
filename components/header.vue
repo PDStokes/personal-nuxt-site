@@ -8,7 +8,7 @@
                 <nuxt-link class="nav-link noselect" to="/missions">Missions</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/status-report">Status Report</nuxt-link>
+                <a class="nav-link noselect" href="/Stokes_CV.pdf" download>Status Report</a>
             </li>
         </ul>
     </nav>

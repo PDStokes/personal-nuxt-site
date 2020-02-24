@@ -1,26 +1,21 @@
 <template>
-    <a
+    <div
         v-scroll
-        :href="href"
-        target="_blank"
         class="banner"
+        @click="setImage"
     >
-        <i class="fas fa-external-link-alt external-link" />
+        <i class="fas fa-expand external-link" />
         <img
             v-lazyload="{width: imageWidth, height: imageHeight}"
             :data-src="require(`~/assets/${imageSrc}`)"
             :alt="imageAlt"
         >
-    </a>
+    </div>
 </template>
 
 <script>
 export default {
     props: {
-        href: {
-            type: String,
-            required: true,
-        },
         imageWidth: {
             type: Number,
             required: true,
@@ -37,12 +32,34 @@ export default {
             type: String,
             default: '',
         },
+        largeImageSrc: {
+            type: String,
+            required: true,
+        },
+        largeImageAlt: {
+            type: String,
+            default: '',
+        },
+    },
+    data () {
+        return {
+            visible: false,
+        };
+    },
+    mounted () {
+        this.$lightBox.createLightbox();
+    },
+    methods: {
+        setImage () {
+            this.$lightBox.setImage({ imageSrc: this.largeImageSrc, imageAlt: this.largeImageAlt });
+        },
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .banner {
+    cursor: pointer;
     position: relative;
     display: block;
     white-space: nowrap;
@@ -89,4 +106,5 @@ export default {
         font-size: 3rem;
     }
 }
+
 </style>
