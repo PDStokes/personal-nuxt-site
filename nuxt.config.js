@@ -57,5 +57,11 @@ export default {
             'three/examples/jsm/shaders',
             'three/examples/jsm/controls/OrbitControls',
         ],
+        file: {
+            test: /\.(mov|mp4)$/,
+            options: {
+                name: '[name].[ext]',
+            },
+        },
     },
 };

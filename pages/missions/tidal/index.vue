@@ -75,9 +75,9 @@ export default {
                     ],
                 },
                 {
-                    title: 'Dynamix Embed Matrix',
+                    title: 'Dynamic Embed Matrix',
                     href: 'embedmatrix',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -87,7 +87,7 @@ export default {
                 {
                     title: 'Latinx Heritage Month \'17',
                     href: 'latinx',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
@@ -98,7 +98,7 @@ export default {
                 {
                     title: 'Made In America 2018',
                     href: 'mia2018',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -108,7 +108,7 @@ export default {
                 {
                     title: 'Chasing The Cup',
                     href: 'chasingthecup',
-                    bgImg: require('~/assets/images/space-bg.jpg'),
+                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),

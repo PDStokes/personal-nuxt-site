@@ -48,7 +48,7 @@ export default {
     position: absolute;
     left: 0; right: 0;
     margin: auto;
-    max-width: 1920px;
+    max-width: 95%;
     max-height: 90vh;
     top: 50%;
     transform: translateY(-50%);

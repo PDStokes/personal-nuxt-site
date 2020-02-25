@@ -11,7 +11,11 @@
         >
             <template v-slot:project-content>
                 <div>
-                    <h1>Look some CONTENT</h1>
+                    <h1 class="margin-top-4">Demo:</h1>
+                    <video-player
+                        video-src="images/tidal/jayzicon/jayz-icon-demo.mp4"
+                        poster-src="images/tidal/jayzicon/jayz-icon-poster.jpg"
+                    />
                 </div>
             </template>
         </project-page>
@@ -20,10 +24,12 @@
 
 <script>
 import projectPage from '~/components/project-page.vue';
+import videoPlayer from '~/components/video-player.vue';
 
 export default {
     components: {
         projectPage,
+        videoPlayer,
     },
     data () {
         return {
