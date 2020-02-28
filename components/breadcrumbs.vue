@@ -81,7 +81,7 @@ export default {
 @for $i from 0 through 2 {
     .level-#{$i} {
         background-color: lighten($site-base-color, $i * 15%);
-        &:after {
+        &::after {
             background-color: lighten($site-base-color, $i * 15%);
         }
     }
@@ -103,7 +103,7 @@ export default {
         padding: 5px 12px;
     }
 
-    &:after {
+    &::after {
         content: '';
         height: 10px;
         width: 10px;
@@ -118,7 +118,7 @@ export default {
 
     &:last-child {
         border: 1px solid darken($site-base-color, 5%);
-        &:after {
+        &::after {
             display: none;
         }
         border-top-right-radius: 5px;
@@ -126,7 +126,7 @@ export default {
     }
 
     &:hover {
-        text-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+        text-shadow: 0px 0px 3px white;
     }
 }
 </style>

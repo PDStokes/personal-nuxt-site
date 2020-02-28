@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="main-image-bg" :style="{ backgroundImage: `url(${backgroundImage})` }">
+        <div class="main-image-bg" :style="mainBgStyle">
             <transition appear appear-active-class="slide-in">
                 <div ref="slideOut" class="title-wrapper">
                     <h1 class="project-title noselect" v-html="filteredTitle" />
@@ -76,6 +76,10 @@ export default {
             type: Array,
             default: null,
         },
+        textShadow: {
+            type: Boolean,
+            default: false,
+        },
         backgroundImage: {
             type: String,
             required: true,
@@ -85,6 +89,13 @@ export default {
         filteredTitle () {
             return this.projectTitle.replace(/(\s)/g, '<br>');
         },
+        mainBgStyle () {
+            if (this.textShadow) {
+                return { backgroundImage: `linear-gradient(to left, rgba(0,0,0,0) 30%, rgba(0,0,0,0.65) 80%), url(${this.backgroundImage})` };
+            }
+
+            return { backgroundImage: `url(${this.backgroundImage})` };
+        }
     },
 };
 </script>
@@ -121,5 +132,9 @@ export default {
     @include bp(not-phone) {
         max-width: 40%;
     }
+}
+
+.shadow {
+    text-shadow: 0px 0px 10px black;
 }
 </style>

@@ -348,6 +348,7 @@ export default {
     .title {
         margin-top: 0;
         margin-bottom: 1rem;
+        font-size: 5rem;
     }
 
     .enter-button {
@@ -384,7 +385,7 @@ export default {
   width: 64px;
   height: 64px;
 }
-.lds-hourglass:after {
+.lds-hourglass::after {
   content: " ";
   display: block;
   border-radius: 50%;

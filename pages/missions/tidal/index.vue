@@ -77,7 +77,7 @@ export default {
                 {
                     title: 'Dynamic Embed Matrix',
                     href: 'embedmatrix',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    bgImg: require('~/assets/images/tidal/embedmatrix/embedmatrix.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
@@ -85,7 +85,7 @@ export default {
                     ],
                 },
                 {
-                    title: 'Latinx Heritage Month \'17',
+                    title: 'Latinx Heritage Month',
                     href: 'latinx',
                     bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
                     logoList: [

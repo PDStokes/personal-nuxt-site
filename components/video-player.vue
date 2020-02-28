@@ -25,5 +25,7 @@ export default {
 video {
     background: black;
     width: 100%;
+    outline: none;
+    height:56.25%;
 }
 </style>

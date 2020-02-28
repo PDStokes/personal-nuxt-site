@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div v-show="visible" class="lightbox" @click="hideLB">
+        <div v-show="visible" class="lightbox noselect" @click="hideLB">
             <img
                 :src="getImgSrc"
                 :alt="imageAlt"
