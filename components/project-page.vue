@@ -110,8 +110,7 @@ export default {
 .title-wrapper {
     max-width: $max-content-width;
     margin: auto;
-    padding: 80px 20px;
-    padding-top: 15vh;
+    padding: 20vh 20px;
 }
 
 .project-title {

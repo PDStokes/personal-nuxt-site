@@ -87,7 +87,7 @@ export default {
                 {
                     title: 'Latinx Heritage Month',
                     href: 'latinx',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    bgImg: require('~/assets/images/tidal/latinx/latinx.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
@@ -98,7 +98,7 @@ export default {
                 {
                     title: 'Made In America 2018',
                     href: 'mia2018',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    bgImg: require('~/assets/images/tidal/mia/mia.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),

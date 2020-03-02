@@ -93,10 +93,4 @@ main /deep/ .main-image-bg {
         background-position: 80%;
     }
 }
-
-.description {
-    @include bp(laptop) {
-        // max-width: 50%;
-    }
-}
 </style>
