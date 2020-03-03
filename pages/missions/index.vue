@@ -64,6 +64,7 @@ export default {
                     iconSrc: require('~/assets/images/project-icons/delaware-logo.png'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
+                        require('~/assets/images/logos/logo-jquery.png'),
                         require('~/assets/images/logos/logo-highcharts.png'),
                         require('~/assets/images/logos/logo-less.png'),
                         require('~/assets/images/logos/logo-qgis.png'),

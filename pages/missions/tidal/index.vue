@@ -15,14 +15,15 @@
                     >
                 </div>
                 <div class="role-box">
-                    <h2 class="role">Front End Web Developer</h2>
+                    <h2 class="role">Web Developer</h2>
                     <p class="bold">Duties:</p>
                     <ul>
-                        <li>Develop custom components, features, and functionality to improve user experience </li>
-                        <li>Build sites for high-priority artists and campaigns, while maintaining confidentiality </li>
-                        <li>Update main sites with daily promo-releases, tickets campaigns, giveaways, livestreams/concerts, and other marketing material </li>
-                        <li>Provide insight and web-related guidance for marketing projects </li>
-                        <li>Support livestreams and other live media to ensure site integrity</li>
+                        <li>Built reusable components to improve site robustness and enrich user experience.</li>
+                        <li>Developed web solutions for confidential releases, high profile clients, and multi-faceted campaigns, maintaining quality often with short turnaround.</li>
+                        <li>Set up and provided technical coverage for livestream events.</li>
+                        <li>Transitioned seamlessly between frameworks during a complete website/stack revamp.</li>
+                        <li>Provided cross team support for web-related needs.</li>
+                        <li>Maintained strong education in latest technologies and software for use in various projects.</li>
                     </ul>
                 </div>
             </section>
@@ -85,8 +86,8 @@ export default {
                     ],
                 },
                 {
-                    title: 'Latinx Heritage Month',
-                    href: 'latinx',
+                    title: 'Map Based Projects',
+                    href: 'maps',
                     bgImg: require('~/assets/images/tidal/latinx/latinx.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-raphael.png'),
@@ -106,11 +107,10 @@ export default {
                     ],
                 },
                 {
-                    title: 'Chasing The Cup',
-                    href: 'chasingthecup',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    title: 'Extras',
+                    href: 'extras',
+                    bgImg: require('~/assets/images/tidal/extras/extras.jpg'),
                     logoList: [
-                        require('~/assets/images/logos/logo-raphael.png'),
                         require('~/assets/images/logos/logo-angular.png'),
                         require('~/assets/images/logos/logo-node.png'),
                         require('~/assets/images/logos/logo-sass.png'),

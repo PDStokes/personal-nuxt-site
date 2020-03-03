@@ -18,7 +18,7 @@
                     />
                     <h2 class="margin-top-2 margin-bottom-1">Explanation:</h2>
                     <p class="font-medium">TIDAL’s livestream of the Made In America festival is considered a yearly highlight for the company.  In consideration of the importance of the event, we decided to roll out a more comprehensive web campaign.  The final result was a livestream page with dynamically updating lineups and stages, a program page for full lineup and artist content, and a page for VODs (replays). </p>
-                    <h1 class="margin-top-6">More examples:</h1>
+                    <h1 class="margin-top-6">Example images:</h1>
                     <project-image
                         :image-width="1920"
                         :image-height="350"
