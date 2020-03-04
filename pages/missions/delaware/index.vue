@@ -55,7 +55,7 @@ export default {
                 {
                     title: 'Regional Director Locator',
                     href: 'rdmap',
-                    bgImg: require('~/assets/images/tidal/redesign/redesign.jpg'),
+                    bgImg: require('~/assets/images/delaware/zipcode.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
                         require('~/assets/images/logos/logo-jquery.png'),
@@ -67,7 +67,7 @@ export default {
                 {
                     title: 'Interactive Charts',
                     href: 'charts',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    bgImg: require('~/assets/images/delaware/zipcode.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
                         require('~/assets/images/logos/logo-highcharts.png'),
@@ -77,7 +77,7 @@ export default {
                 {
                     title: 'Site Maintenance',
                     href: 'sitecore',
-                    bgImg: require('~/assets/images/tidal/jayzicon/jayzicon.jpg'),
+                    bgImg: require('~/assets/images/delaware/zipcode.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
                         require('~/assets/images/logos/logo-jquery.png'),
