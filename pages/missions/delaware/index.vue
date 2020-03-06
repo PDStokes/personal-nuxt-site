@@ -67,9 +67,10 @@ export default {
                 {
                     title: 'Interactive Charts',
                     href: 'charts',
-                    bgImg: require('~/assets/images/delaware/zipcode.jpg'),
+                    bgImg: require('~/assets/images/delaware/charts.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
+                        require('~/assets/images/logos/logo-jquery.png'),
                         require('~/assets/images/logos/logo-highcharts.png'),
                         require('~/assets/images/logos/logo-less.png'),
                     ],

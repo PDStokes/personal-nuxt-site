@@ -59,7 +59,7 @@ export default {
                 'Interactive maps divided by zip codes',
                 'Locator form component that returned regional director',
                 'Map and Locator functionality bounded to return equivalent information',
-            ]
+            ],
         };
     },
     head () {

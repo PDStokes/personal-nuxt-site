@@ -16,7 +16,9 @@
                         video-src="images/tidal/jayzicon/jayz-icon-demo.mp4"
                         poster-src="images/tidal/jayzicon/jayz-icon-poster.jpg"
                     />
-                    <h1 class="margin-top-8">Example images:</h1>
+                    <h2 class="margin-top-2 margin-bottom-1">Explanation:</h2>
+                    <p class="font-medium">This was a custom landing page and timeline slider component I built for the celebration of JAY-Z's special GRAMMY award.  We wanted to highlight all the GRAMMY nominations and wins he had accrued over the years, so we landed on creating a horizontal sliding timeline that would allow the user to click on a year to view a brief description of the nominations and awards.  This page also contained stylized editorials, playlists, and other related content.</p>
+                    <h1 class="margin-top-6">Example images:</h1>
                     <project-image
                         :image-width="1920"
                         :image-height="350"

@@ -26,6 +26,13 @@
                         image-src="images/tidal/redesign/nfl-page.jpg"
                         image-alt="NFL Partner Page"
                     />
+                    <project-link
+                        href="https://tidal.com/thebeatles"
+                        :image-width="1920"
+                        :image-height="350"
+                        image-src="images/tidal/redesign/beatles-page.jpg"
+                        image-alt="The Beatles Anniversary Page"
+                    />
                     <div class="margin-top-8 margin-bottom-8">
                         <h1 class="margin-bottom-0">Tickets Page Component:</h1>
                         <p class="margin-bottom-2 font-medium">This was a tickets page component I built, to be used for the member only pre-sales we would often run, but also for regular ticket on-sales.  It included a search feature that would filter based on venue name and location.</p>

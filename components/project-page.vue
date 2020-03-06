@@ -91,7 +91,7 @@ export default {
         },
         mainBgStyle () {
             if (this.textShadow) {
-                return { backgroundImage: `linear-gradient(to left, rgba(0,0,0,0) 30%, rgba(0,0,0,0.65) 80%), url(${this.backgroundImage})` };
+                return { backgroundImage: `linear-gradient(to left, rgba(0,0,0,0) 30%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.75) 100%), url(${this.backgroundImage})` };
             }
 
             return { backgroundImage: `url(${this.backgroundImage})` };
