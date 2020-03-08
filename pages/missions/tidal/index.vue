@@ -25,6 +25,7 @@
                         <li>Provided cross team support for web-related needs.</li>
                         <li>Maintained strong education in latest technologies and software for use in various projects.</li>
                     </ul>
+                    <p class="disclosure">*All worked illustrated here is exclusive property of TIDAL.</p>
                 </div>
             </section>
         </transition>

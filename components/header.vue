@@ -5,10 +5,10 @@
                 <nuxt-link class="nav-link noselect" to="/">Solar System</nuxt-link>
             </li>
             <li class="nav-item">
-                <nuxt-link class="nav-link noselect" to="/missions">Missions</nuxt-link>
+                <nuxt-link class="nav-link noselect" to="/missions">Mission Log</nuxt-link>
             </li>
             <li class="nav-item">
-                <a class="nav-link noselect" href="/Stokes_CV.pdf" download>Status Report</a>
+                <a class="nav-link noselect" href="/Stokes_CV.pdf" download>Status Report (CV)</a>
             </li>
         </ul>
     </nav>

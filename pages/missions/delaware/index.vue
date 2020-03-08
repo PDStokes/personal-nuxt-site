@@ -24,6 +24,7 @@
                         <li>Enhanced functionality and efficiency of interactive web content.</li>
                         <li>Adhered to strict legal guidelines and compliance while developing.</li>
                     </ul>
+                    <p class="disclosure">*All worked illustrated here is exclusive property of Delaware Investments.</p>
                 </div>
             </section>
         </transition>
@@ -78,7 +79,7 @@ export default {
                 {
                     title: 'Site Maintenance',
                     href: 'sitecore',
-                    bgImg: require('~/assets/images/delaware/zipcode.jpg'),
+                    bgImg: require('~/assets/images/delaware/sitecore.jpg'),
                     logoList: [
                         require('~/assets/images/logos/logo-sitecore.png'),
                         require('~/assets/images/logos/logo-jquery.png'),

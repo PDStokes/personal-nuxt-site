@@ -78,6 +78,7 @@ export default {
                     logoList: [
                         require('~/assets/images/logos/logo-wordpress.png'),
                         require('~/assets/images/logos/logo-adobe.png'),
+                        require('~/assets/images/logos/logo-flash.png'),
                     ],
                 },
                 {

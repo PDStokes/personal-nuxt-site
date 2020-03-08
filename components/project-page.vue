@@ -120,6 +120,10 @@ export default {
     font-size: 5rem;
     line-height: 5.5rem;
     margin-top: 0;
+    @include bp(phone) {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
 }
 
 .project-subtitle {
@@ -131,9 +135,5 @@ export default {
     @include bp(not-phone) {
         max-width: 40%;
     }
-}
-
-.shadow {
-    text-shadow: 0px 0px 10px black;
 }
 </style>

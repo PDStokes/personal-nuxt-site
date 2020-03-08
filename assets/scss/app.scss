@@ -54,6 +54,11 @@ p {
     font-weight: bold;
 }
 
+.disclosure {
+    @extend .font-small;
+    font-style: italic;
+}
+
 .page-title {
     font-family: $nasa-font;
     color: $nasa-red;
@@ -72,7 +77,7 @@ p {
                                     supported by Chrome and Opera */
 }
 
-@for $i from 2 through 8 {
+@for $i from 0 through 8 {
     .margin-top-#{$i} {
         margin-top: $i * 1rem;
     }
@@ -163,6 +168,8 @@ p {
 
     .tool {
         max-width: 80px;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
         @include bp(phone) {
             margin: 10px 5%;
         }

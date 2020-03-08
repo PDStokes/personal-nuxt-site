@@ -69,10 +69,7 @@ export default {
 <style lang="scss" scoped>
 main /deep/ .main-image-bg {
     @include bp(phone) {
-        background-position: 40%;
-    }
-    @include bp(tablet-only) {
-        background-position: 80%;
+        background-position: right;
     }
 }
 </style>
