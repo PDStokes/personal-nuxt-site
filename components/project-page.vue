@@ -2,7 +2,7 @@
     <div>
         <div class="main-image-bg" :style="mainBgStyle">
             <transition appear appear-active-class="slide-in">
-                <div ref="slideOut" class="title-wrapper">
+                <div ref="slideOut" class="title-wrapper" :class="{ 'dark-text': darkText }">
                     <h1 class="project-title noselect" v-html="filteredTitle" />
                     <p class="project-subtitle noselect">{{ projectSubtitle }}</p>
                 </div>
@@ -76,6 +76,10 @@ export default {
             type: Array,
             default: null,
         },
+        darkText: {
+            type: Boolean,
+            default: false,
+        },
         textShadow: {
             type: Boolean,
             default: false,
@@ -105,6 +109,14 @@ export default {
     background: center center / cover no-repeat black;
     min-height: 95vh;
     margin-top: 40px;
+}
+
+.dark-text {
+    @include bp(phone) {
+        h1, p {
+            color: darken($dark-text, 15%) !important;
+        }
+    }
 }
 
 .title-wrapper {
