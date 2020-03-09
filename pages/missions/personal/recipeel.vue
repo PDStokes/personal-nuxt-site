@@ -8,7 +8,7 @@
             :text-shadow="true"
             :dark-text="true"
             :logo-list="logoList"
-            role-copy="Supreme Leader"
+            role-copy="Head Chef"
             description-copy="The goal of this prototype is to create an app which scrapes recipe data from a website, negating the obnoxious amount of extraneous information and ads that users must usually scroll through, and displays this recipe information in a succinct manner.  For more info, check Github page below, or try out the prototype yourself."
         >
             <template v-slot:project-content>
