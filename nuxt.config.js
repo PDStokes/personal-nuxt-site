@@ -48,6 +48,9 @@ export default {
     styleResources: {
         scss: '~/assets/scss/base/*.scss',
     },
+    serverMiddleware: [
+        'redirect-ssl',
+    ],
     /*
   ** Build configuration
   */
