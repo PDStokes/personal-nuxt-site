@@ -19,6 +19,13 @@
                     />
                     <h2 class="margin-top-2 margin-bottom-1">Explanation:</h2>
                     <p class="font-medium">This was a landing page built for JAY-Z’s induction into the Songwriters Hall of Fame.  We received short quotes and videos from other artists and celebrities to highlight, along with a short essay and other related content.  It was a fairly straight forward page to develop, but had a lot of press on it and was built in a very short turnaround.</p>
+                    <h1 class="margin-top-8">DJ Selector Demo:</h1>
+                    <video-player
+                        video-src="images/tidal/extras/djselector-demo.mp4"
+                        poster-src="images/tidal/extras/djselector-poster.jpg"
+                    />
+                    <h2 class="margin-top-2 margin-bottom-1">Explanation:</h2>
+                    <p class="font-medium">This was a project page I built that would become a weekly program for a year or so. Our content team would reach out to popular DJs and have them send us a set playlist.  The project consisted of a program homepage that housed each DJ and the most recent weekly playlists, and then each DJ had a seperate personal page with all their playlists made for us and an artist bio.</p>
                     <h1 class="margin-top-8">Wench Demo:</h1>
                     <video-player
                         video-src="images/tidal/extras/wench-demo.mp4"
