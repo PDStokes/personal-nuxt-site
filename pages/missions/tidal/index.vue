@@ -56,6 +56,29 @@ export default {
         projectList () {
             return [
                 {
+                    title: 'Originals',
+                    href: 'originals',
+                    bgImg: require('~/assets/images/tidal/originals/originals.jpg'),
+                    logoList: [
+                        require('~/assets/images/logos/logo-graphql.png'),
+                        require('~/assets/images/logos/logo-vue.png'),
+                        require('~/assets/images/logos/logo-nuxt.png'),
+                        require('~/assets/images/logos/logo-node.png'),
+                        require('~/assets/images/logos/logo-sass.png'),
+                    ],
+                },
+                {
+                    title: 'Supported Devices',
+                    href: 'devices',
+                    bgImg: require('~/assets/images/tidal/devices/devices.jpg'),
+                    logoList: [
+                        require('~/assets/images/logos/logo-vue.png'),
+                        require('~/assets/images/logos/logo-nuxt.png'),
+                        require('~/assets/images/logos/logo-node.png'),
+                        require('~/assets/images/logos/logo-sass.png'),
+                    ],
+                },
+                {
                     title: 'TIDAL Redesign',
                     href: 'tidalredesign',
                     bgImg: require('~/assets/images/tidal/redesign/redesign.jpg'),

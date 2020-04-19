@@ -13,21 +13,21 @@
                 <div>
                     <h1 class="margin-top-4">Examples of pages worked on:</h1>
                     <project-link
-                        href="https://tidal.com/partners/samsung"
+                        href="https://bit.ly/3cwpajk"
                         :image-width="1920"
                         :image-height="350"
                         image-src="images/tidal/redesign/partner-page.jpg"
                         image-alt="TIDAL Partner Page"
                     />
                     <project-link
-                        href="https://tidal.com/nfl"
+                        href="https://bit.ly/2VFflsP"
                         :image-width="1920"
                         :image-height="350"
                         image-src="images/tidal/redesign/nfl-page.jpg"
                         image-alt="NFL Partner Page"
                     />
                     <project-link
-                        href="https://tidal.com/thebeatles"
+                        href="https://bit.ly/2ze6fvw"
                         :image-width="1920"
                         :image-height="350"
                         image-src="images/tidal/redesign/beatles-page.jpg"
