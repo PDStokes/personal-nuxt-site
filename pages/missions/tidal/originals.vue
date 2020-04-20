@@ -21,7 +21,7 @@
                         image-alt="TIDAL Originals"
                     />
                     <h2 class="margin-top-2 margin-bottom-1">Explanation:</h2>
-                    <p class="font-medium">This was a landing page I built in a short turnaround during the crazy COVID-19 pandemic (which we’re still currently living in).  It required brand new functionality which we hadn’t built into our components, and a custom API call using GraphQL, which I had no experience with.  A project of firsts for myself, I added a click/expand function that worked with our carousel component, a dynamic background style feature, and the GraphQL API call for our latest episodes based on a category created by our editorial team.</p>
+                    <p class="font-medium">This was a landing page I built in a short turnaround to showcase our original series', their latest episodes, and the hosts who run them.  It required brand new functionality which we hadn’t built into our components, and a custom API call using GraphQL, which I had no experience with.  A project of firsts for myself, I added a click/expand function that worked with our carousel component, a dynamic background style feature, and the GraphQL API call for our latest episodes based on a category created by our editorial team.</p>
                     <h1 class="margin-top-6">Example images:</h1>
                     <project-image
                         :image-width="1920"
