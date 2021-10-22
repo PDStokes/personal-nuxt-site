@@ -334,6 +334,7 @@ export default {
     font-family: $serif-font;
     font-size: 2rem;
     top: 50%;
+    pointer-events: none;
     transform: translateY(-50%);
     margin: auto;
     width: 100%;
@@ -361,6 +362,7 @@ export default {
         font-family: $sans-font;
         font-weight: bold;
         font-size: 2rem;
+        pointer-events: auto;
 
         &:hover {
             transition: background-color 0.25s;
