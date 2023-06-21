@@ -14,7 +14,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "nuxt": "^2.11.0",
+    "nuxt": "^3.4.3",
     "redirect-ssl": "^1.4.1",
     "three": "^0.107.0"
   },
